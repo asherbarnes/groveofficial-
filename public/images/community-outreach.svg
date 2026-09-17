@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1600" viewBox="0 0 1400 1600" role="img" aria-label="COMMUNITY">
+  <rect width="1400" height="1600" fill="#1A1510"/>
+  <g opacity="0.12" stroke="#B8925A" stroke-width="1">
+         <line x1="0" y1="30" x2="1400" y2="20"/><line x1="0" y1="120.58823529411765" x2="1400" y2="110.58823529411765"/><line x1="0" y1="211.1764705882353" x2="1400" y2="201.1764705882353"/><line x1="0" y1="301.7647058823529" x2="1400" y2="291.7647058823529"/><line x1="0" y1="392.3529411764706" x2="1400" y2="382.3529411764706"/><line x1="0" y1="482.9411764705883" x2="1400" y2="472.9411764705883"/><line x1="0" y1="573.5294117647059" x2="1400" y2="563.5294117647059"/><line x1="0" y1="664.1176470588235" x2="1400" y2="654.1176470588235"/><line x1="0" y1="754.7058823529412" x2="1400" y2="744.7058823529412"/><line x1="0" y1="845.2941176470589" x2="1400" y2="835.2941176470589"/><line x1="0" y1="935.8823529411766" x2="1400" y2="925.8823529411766"/><line x1="0" y1="1026.4705882352941" x2="1400" y2="1016.4705882352941"/><line x1="0" y1="1117.0588235294117" x2="1400" y2="1107.0588235294117"/><line x1="0" y1="1207.6470588235295" x2="1400" y2="1197.6470588235295"/><line x1="0" y1="1298.235294117647" x2="1400" y2="1288.235294117647"/><line x1="0" y1="1388.8235294117649" x2="1400" y2="1378.8235294117649"/><line x1="0" y1="1479.4117647058824" x2="1400" y2="1469.4117647058824"/><line x1="0" y1="1570" x2="1400" y2="1560"/>
+       </g>
+  <rect x="0" y="0" width="1400" height="6" fill="#B8925A"/>
+  <text x="48" y="1512" fill="#B8925A" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">COMMUNITY</text>
+  <text x="48" y="1548" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">Outreach · mentorship · belonging</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

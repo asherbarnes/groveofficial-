@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800" role="img" aria-label="IG 05">
+  <rect width="800" height="800" fill="#0B1F18"/>
+  <g opacity="0.12" stroke="#E6DCCB" stroke-width="1">
+         <line x1="0" y1="30" x2="800" y2="20"/><line x1="0" y1="73.52941176470588" x2="800" y2="63.529411764705884"/><line x1="0" y1="117.05882352941177" x2="800" y2="107.05882352941177"/><line x1="0" y1="160.58823529411765" x2="800" y2="150.58823529411765"/><line x1="0" y1="204.11764705882354" x2="800" y2="194.11764705882354"/><line x1="0" y1="247.64705882352942" x2="800" y2="237.64705882352942"/><line x1="0" y1="291.1764705882353" x2="800" y2="281.1764705882353"/><line x1="0" y1="334.7058823529412" x2="800" y2="324.7058823529412"/><line x1="0" y1="378.2352941176471" x2="800" y2="368.2352941176471"/><line x1="0" y1="421.7647058823529" x2="800" y2="411.7647058823529"/><line x1="0" y1="465.29411764705884" x2="800" y2="455.29411764705884"/><line x1="0" y1="508.82352941176475" x2="800" y2="498.82352941176475"/><line x1="0" y1="552.3529411764706" x2="800" y2="542.3529411764706"/><line x1="0" y1="595.8823529411765" x2="800" y2="585.8823529411765"/><line x1="0" y1="639.4117647058824" x2="800" y2="629.4117647058824"/><line x1="0" y1="682.9411764705883" x2="800" y2="672.9411764705883"/><line x1="0" y1="726.4705882352941" x2="800" y2="716.4705882352941"/><line x1="0" y1="770" x2="800" y2="760"/>
+       </g>
+  <rect x="0" y="0" width="800" height="6" fill="#E6DCCB"/>
+  <text x="48" y="712" fill="#E6DCCB" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">IG 05</text>
+  <text x="48" y="748" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">@the.grove.cc</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="GROVE DETAIL">
+  <rect width="1200" height="900" fill="#2A2118"/>
+  <g opacity="0.12" stroke="#B8925A" stroke-width="1">
+         <line x1="0" y1="30" x2="1200" y2="20"/><line x1="0" y1="79.41176470588235" x2="1200" y2="69.41176470588235"/><line x1="0" y1="128.8235294117647" x2="1200" y2="118.82352941176471"/><line x1="0" y1="178.23529411764707" x2="1200" y2="168.23529411764707"/><line x1="0" y1="227.64705882352942" x2="1200" y2="217.64705882352942"/><line x1="0" y1="277.05882352941177" x2="1200" y2="267.05882352941177"/><line x1="0" y1="326.47058823529414" x2="1200" y2="316.47058823529414"/><line x1="0" y1="375.88235294117646" x2="1200" y2="365.88235294117646"/><line x1="0" y1="425.29411764705884" x2="1200" y2="415.29411764705884"/><line x1="0" y1="474.7058823529412" x2="1200" y2="464.7058823529412"/><line x1="0" y1="524.1176470588235" x2="1200" y2="514.1176470588235"/><line x1="0" y1="573.5294117647059" x2="1200" y2="563.5294117647059"/><line x1="0" y1="622.9411764705883" x2="1200" y2="612.9411764705883"/><line x1="0" y1="672.3529411764706" x2="1200" y2="662.3529411764706"/><line x1="0" y1="721.7647058823529" x2="1200" y2="711.7647058823529"/><line x1="0" y1="771.1764705882354" x2="1200" y2="761.1764705882354"/><line x1="0" y1="820.5882352941177" x2="1200" y2="810.5882352941177"/><line x1="0" y1="870" x2="1200" y2="860"/>
+       </g>
+  <rect x="0" y="0" width="1200" height="6" fill="#B8925A"/>
+  <text x="48" y="812" fill="#B8925A" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">GROVE DETAIL</text>
+  <text x="48" y="848" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">Hardwood · shoes · court lines</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="900" viewBox="0 0 800 900" role="img" aria-label="IG 04">
+  <rect width="800" height="900" fill="#1A1510"/>
+  <g opacity="0.18" stroke="#B8925A" stroke-width="2" fill="none">
+         <rect x="40" y="40" width="720" height="820"/>
+         <line x1="400" y1="40" x2="400" y2="860"/>
+         <circle cx="400" cy="450" r="96"/>
+         <path d="M40 252.00000000000003 Q 144 252.00000000000003 144 450 Q 144 648 40 648"/>
+         <path d="M760 252.00000000000003 Q 656 252.00000000000003 656 450 Q 656 648 760 648"/>
+       </g>
+  <rect x="0" y="0" width="800" height="6" fill="#B8925A"/>
+  <text x="48" y="812" fill="#B8925A" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">IG 04</text>
+  <text x="48" y="848" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">@the.grove.cc</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

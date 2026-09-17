@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1500" viewBox="0 0 1200 1500" role="img" aria-label="ERIC CORDOVA">
+  <rect width="1200" height="1500" fill="#0B0B0B"/>
+  <g opacity="0.15" fill="none" stroke="#E6DCCB" stroke-width="1.5">
+         <rect x="60" y="60" width="1080" height="1380"/><rect x="88" y="78" width="1024" height="1344"/><rect x="116" y="96" width="968" height="1308"/><rect x="144" y="114" width="912" height="1272"/><rect x="172" y="132" width="856" height="1236"/><rect x="200" y="150" width="800" height="1200"/>
+       </g>
+  <rect x="0" y="0" width="1200" height="6" fill="#E6DCCB"/>
+  <text x="48" y="1412" fill="#E6DCCB" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">ERIC CORDOVA</text>
+  <text x="48" y="1448" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">Scholarship · legacy · the next one</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

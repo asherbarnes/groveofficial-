@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="2000" viewBox="0 0 1600 2000" role="img" aria-label="HERO / COMMUNITY">
+  <rect width="1600" height="2000" fill="#0B1F18"/>
+  <g opacity="0.18" stroke="#B8925A" stroke-width="2" fill="none">
+         <rect x="40" y="40" width="1520" height="1920"/>
+         <line x1="800" y1="40" x2="800" y2="1960"/>
+         <circle cx="800" cy="1000" r="192"/>
+         <path d="M40 560 Q 288 560 288 1000 Q 288 1440 40 1440"/>
+         <path d="M1560 560 Q 1312 560 1312 1000 Q 1312 1440 1560 1440"/>
+       </g>
+  <rect x="0" y="0" width="1600" height="6" fill="#B8925A"/>
+  <text x="48" y="1912" fill="#B8925A" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">HERO / COMMUNITY</text>
+  <text x="48" y="1948" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">Players · families · the gym · San Jose</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

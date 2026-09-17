@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100" role="img" aria-label="FACILITY / COURT">
+  <rect width="1800" height="1100" fill="#16352A"/>
+  <g opacity="0.18" stroke="#D4B483" stroke-width="2" fill="none">
+         <rect x="40" y="40" width="1720" height="1020"/>
+         <line x1="900" y1="40" x2="900" y2="1060"/>
+         <circle cx="900" cy="550" r="132"/>
+         <path d="M40 308.00000000000006 Q 324 308.00000000000006 324 550 Q 324 792 40 792"/>
+         <path d="M1760 308.00000000000006 Q 1476 308.00000000000006 1476 550 Q 1476 792 1760 792"/>
+       </g>
+  <rect x="0" y="0" width="1800" height="6" fill="#D4B483"/>
+  <text x="48" y="1012" fill="#D4B483" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">FACILITY / COURT</text>
+  <text x="48" y="1048" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">10,000 sq ft · FIBA hardwood · San Jose</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>

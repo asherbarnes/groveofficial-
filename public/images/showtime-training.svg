@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1200" viewBox="0 0 1600 1200" role="img" aria-label="SHOWTIME TRAINING">
+  <rect width="1600" height="1200" fill="#0B0B0B"/>
+  <g opacity="0.18" stroke="#1F4A39" stroke-width="2" fill="none">
+         <rect x="40" y="40" width="1520" height="1120"/>
+         <line x1="800" y1="40" x2="800" y2="1160"/>
+         <circle cx="800" cy="600" r="144"/>
+         <path d="M40 336.00000000000006 Q 288 336.00000000000006 288 600 Q 288 864 40 864"/>
+         <path d="M1560 336.00000000000006 Q 1312 336.00000000000006 1312 600 Q 1312 864 1560 864"/>
+       </g>
+  <rect x="0" y="0" width="1600" height="6" fill="#1F4A39"/>
+  <text x="48" y="1112" fill="#1F4A39" font-family="Arial Black, Helvetica, sans-serif" font-size="28" letter-spacing="4">SHOWTIME TRAINING</text>
+  <text x="48" y="1148" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="16" opacity="0.75">Year-round basketball school</text>
+  <text x="48" y="56" fill="#F2EBE0" font-family="Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" opacity="0.55">TEMPORARY ASSET · REPLACE WITH REAL PHOTO</text>
+</svg>
