@@ -22,7 +22,7 @@ export function FacilitySection() {
             tone="dark"
           >
             <p>
-              {facility.summary} This is the physical home of the collective —
+              {facility.summary} This is the physical home of the collective:
               where Showtime trains, community gathers, and the work gets done.
             </p>
           </SectionHeading>

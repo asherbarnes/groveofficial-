@@ -8,7 +8,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Book the Space",
   description:
-    "Book The Grove Community Collective facility in San Jose — regulation court, weight room, and event space via GoodRun.",
+    "Book The Grove Community Collective facility in San Jose: regulation court, weight room, and event space via GoodRun.",
 };
 
 export default function BookPage() {
@@ -41,7 +41,7 @@ export default function BookPage() {
             <SectionHeading eyebrow="The Grove" title="A home for real basketball work.">
               <p>
                 The Grove Community Collective is a San Jose basketball community.
-                The facility is where that community gathers — for training,
+                The facility is where that community gathers: for training,
                 gatherings, and events that need a serious court.
               </p>
             </SectionHeading>

@@ -25,7 +25,7 @@ export function Hero() {
           </p>
 
           <p className="animate-rise delay-3 mt-4 max-w-md text-cream/65">
-            {mission.short} Basketball is how we grow — together.
+            {mission.short} Basketball is how we grow together.
           </p>
 
           <div className="animate-rise delay-3 mt-8 flex flex-wrap gap-3">

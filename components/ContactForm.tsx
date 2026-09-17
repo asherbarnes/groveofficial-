@@ -23,7 +23,7 @@ export function ContactForm() {
       return;
     }
 
-    const subject = encodeURIComponent(`[The Grove] ${topic || "Inquiry"} — ${name}`);
+    const subject = encodeURIComponent(`[The Grove] ${topic || "Inquiry"} - ${name}`);
     const body = encodeURIComponent(
       `Name: ${name}\nEmail: ${email}\nTopic: ${topic}\n\n${message}`,
     );
@@ -83,7 +83,7 @@ export function ContactForm() {
 
       <button
         type="submit"
-        className="inline-flex items-center justify-center bg-forest px-6 py-3.5 font-display text-sm uppercase tracking-[0.16em] text-cream transition-colors hover:bg-forest-mid"
+        className="inline-flex items-center justify-center bg-forest-light px-6 py-3.5 font-display text-sm uppercase tracking-[0.16em] text-black transition-colors hover:bg-forest-lighter"
       >
         Send inquiry
       </button>

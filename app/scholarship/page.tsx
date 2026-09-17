@@ -44,7 +44,7 @@ export default function ScholarshipPage() {
             >
               <p>
                 Coach Eric was a longtime coach associated with The Grove. For
-                over a decade he poured into the game and into young people — the
+                over a decade he poured into the game and into young people: the
                 kind of presence a community remembers because it changed how
                 people showed up for each other.
               </p>

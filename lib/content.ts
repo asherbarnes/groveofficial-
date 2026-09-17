@@ -37,7 +37,7 @@ export const showtime = {
   name: "Showtime Basketball Academy",
   summary:
     "The Grove is home to Showtime Basketball Academy, our year-round basketball school.",
-  /** Draft pathway — awaiting client verification */
+  /** Draft pathway: awaiting client verification */
   pathwayDraft: true,
   pathway: [
     {

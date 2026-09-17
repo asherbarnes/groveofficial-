@@ -14,14 +14,18 @@ type Props = {
 };
 
 const variants: Record<ButtonVariant, string> = {
+  // Light forest + black text for readability; hover stays in the same family
   primary:
-    "bg-forest text-cream hover:bg-forest-mid border border-forest",
+    "bg-forest-light text-black border border-forest-light hover:bg-forest-lighter",
+  // Outline on dark surfaces: soft fill on hover, no color inversion
   secondary:
-    "bg-transparent text-cream border border-cream/70 hover:bg-cream hover:text-black",
+    "bg-transparent text-cream border border-cream/70 hover:bg-cream/15 hover:border-cream",
+  // Outline on light surfaces: soft fill on hover, keep black text
   ghost:
-    "bg-transparent text-black border border-black/25 hover:border-black hover:bg-black hover:text-cream",
+    "bg-transparent text-black border border-black/25 hover:bg-black/5 hover:border-black/40",
+  // Light fill: black text for contrast on cream
   cream:
-    "bg-cream text-black border border-cream hover:bg-white",
+    "bg-cream text-black border border-cream hover:bg-cream-deep",
   wood:
     "bg-wood text-black border border-wood hover:bg-wood-light",
 };

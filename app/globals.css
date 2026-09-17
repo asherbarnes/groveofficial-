@@ -4,6 +4,8 @@
   --forest: #16352a;
   --forest-dark: #0b1f18;
   --forest-mid: #1f4a39;
+  --forest-light: #4f8a6e;
+  --forest-lighter: #5f9a7c;
   --cream: #f2ebe0;
   --cream-deep: #e6dccb;
   --black: #0b0b0b;
@@ -22,6 +24,8 @@
   --color-forest: var(--forest);
   --color-forest-dark: var(--forest-dark);
   --color-forest-mid: var(--forest-mid);
+  --color-forest-light: var(--forest-light);
+  --color-forest-lighter: var(--forest-lighter);
   --color-cream: var(--cream);
   --color-cream-deep: var(--cream-deep);
   --color-black: var(--black);
@@ -59,7 +63,6 @@ body {
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
 
@@ -105,7 +108,7 @@ img {
   margin-inline: auto;
 }
 
-/* Intentional motion — presence, not decoration */
+/* Intentional motion: presence, not decoration */
 @keyframes rise-in {
   from {
     opacity: 0;

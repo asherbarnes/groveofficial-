@@ -58,7 +58,7 @@ export default function CommunityPage() {
               “{philosophy.quote}”
             </blockquote>
             <p className="mt-6 text-gray">
-              The metaphor is about people — mentorship, shared foundations, and
+              The metaphor is about people: mentorship, shared foundations, and
               belonging. The visual identity stays basketball-first.
             </p>
           </SectionHeading>
@@ -82,7 +82,7 @@ export default function CommunityPage() {
             {[
               {
                 title: "Scholarships",
-                body: "Support that helps offset training and camp/clinic costs — including the Eric Cordova Scholarship.",
+                body: "Support that helps offset training and camp/clinic costs, including the Eric Cordova Scholarship.",
                 href: "/scholarship",
               },
               {
@@ -97,7 +97,7 @@ export default function CommunityPage() {
               },
               {
                 title: "Mentorship",
-                body: "Older trees and seedlings on the same soil — people using their roots to strengthen someone else's foundation.",
+                body: "Older trees and seedlings on the same soil: people using their roots to strengthen someone else's foundation.",
                 href: null,
               },
             ].map((item, index) => (

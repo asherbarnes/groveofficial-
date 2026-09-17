@@ -16,14 +16,14 @@ export default function HomePage() {
     <>
       <Hero />
 
-      {/* 02 — More than a gym */}
+      {/* 02 More than a gym */}
       <section className="bg-cream py-20 md:py-28">
         <div className="container-grove">
           <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
             <div>
               <SectionHeading title="More than a gym.">
                 <p>
-                  The Grove is a basketball facility — and a community built
+                  The Grove is a basketball facility, and a community built
                   through the game. Training happens here. So does mentorship,
                   mutual support, and the work of showing up for the next one.
                 </p>
@@ -32,7 +32,7 @@ export default function HomePage() {
               <blockquote className="mt-12 max-w-2xl border-l-2 border-wood pl-6 text-lg leading-relaxed text-black/75 md:text-xl">
                 “{philosophy.quote}”
                 <footer className="mt-4 font-display text-xs tracking-[0.16em] text-gray">
-                  — {philosophy.source}
+                  {philosophy.source}
                 </footer>
               </blockquote>
             </div>
@@ -75,7 +75,7 @@ export default function HomePage() {
 
       <CommunitySection />
 
-      {/* 06 — Eric Cordova Scholarship */}
+      {/* 06 Eric Cordova Scholarship */}
       <section className="bg-black text-cream">
         <div className="container-wide grid lg:grid-cols-[0.85fr_1.15fr]">
           <Photo

@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact The Grove Community Collective in San Jose — general inquiries, Showtime, facility rentals, and scholarship questions.",
+    "Contact The Grove Community Collective in San Jose: general inquiries, Showtime, facility rentals, and scholarship questions.",
 };
 
 export default function ContactPage() {
@@ -19,7 +19,7 @@ export default function ContactPage() {
             <SectionHeading eyebrow="Contact" title="Get in touch.">
               <p>
                 General questions, Showtime interest, scholarship support, or
-                facility rentals — send a note. Confirmed public phone, email, and
+                facility rentals, send a note. Confirmed public phone, email, and
                 street address will be added once verified.
               </p>
             </SectionHeading>
@@ -48,7 +48,7 @@ export default function ContactPage() {
               <div>
                 <p className="eyebrow text-forest">Facility rental</p>
                 <p className="mt-2 text-black/70">
-                  For court and event bookings, use GoodRun — or send a rental
+                  For court and event bookings, use GoodRun, or send a rental
                   inquiry below.
                 </p>
                 <div className="mt-4 flex flex-wrap gap-3">

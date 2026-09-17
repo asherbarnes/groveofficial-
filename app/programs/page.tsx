@@ -8,7 +8,7 @@ import { images, showtime } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Programs",
   description:
-    "Showtime Basketball Academy — the year-round basketball school based at The Grove Community Collective in San Jose.",
+    "Showtime Basketball Academy: the year-round basketball school based at The Grove Community Collective in San Jose.",
 };
 
 export default function ProgramsPage() {
@@ -24,7 +24,7 @@ export default function ProgramsPage() {
               game.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-cream/70">
-              {showtime.summary} Come get some work in — with a community behind
+              {showtime.summary} Come get some work in, with a community behind
               you.
             </p>
             <div className="mt-8">
@@ -47,7 +47,7 @@ export default function ProgramsPage() {
             <p>
               Showtime is the primary basketball development program of The Grove
               Community Collective. The facility is the home. The academy is where
-              players put in the work — from first reps to competitive growth.
+              players put in the work, from first reps to competitive growth.
             </p>
             <p className="mt-4">
               Ages, schedules, pricing, and coach details will be published once
@@ -118,7 +118,7 @@ export default function ProgramsPage() {
                       index === 2 ? "text-black/55" : "text-cream/45",
                     ].join(" ")}
                   >
-                    Ages, curriculum, and schedule — pending confirmation.
+                    Ages, curriculum, and schedule: pending confirmation.
                   </p>
                 </div>
               </article>
@@ -127,7 +127,7 @@ export default function ProgramsPage() {
 
           <div className="mt-12">
             <ButtonLink href="/contact" variant="cream" size="lg">
-              Join Showtime — Contact Us
+              Join Showtime / Contact Us
             </ButtonLink>
           </div>
         </div>
