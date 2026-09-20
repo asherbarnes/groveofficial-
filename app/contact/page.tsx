@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Contact",
   description:
     "Contact The Grove Community Collective in San Jose: general inquiries, Showtime, facility rentals, and scholarship questions.",
+  alternates: { canonical: "/contact" },
 };
 
 export default function ContactPage() {

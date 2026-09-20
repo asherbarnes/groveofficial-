@@ -48,14 +48,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="/scholarship"
-                  className="text-cream/80 transition-colors hover:text-wood-light"
-                >
-                  Scholarship
-                </Link>
-              </li>
             </ul>
           </div>
 

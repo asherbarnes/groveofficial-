@@ -13,9 +13,7 @@ export function Hero() {
           </p>
 
           <h1 className="animate-rise delay-1 mt-5 font-display text-[clamp(4.5rem,16vw,9.5rem)] leading-[0.82] tracking-[0.02em]">
-            THE
-            <br />
-            GROVE.
+            THE GROVE.
           </h1>
 
           <div className="animate-line delay-2 mt-6 h-px w-28 bg-wood" />

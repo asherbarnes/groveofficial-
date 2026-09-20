@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Community",
   description:
     "Mission, outreach, scholarships, and the collective spirit of The Grove in San Jose.",
+  alternates: { canonical: "/community" },
 };
 
 export default function CommunityPage() {

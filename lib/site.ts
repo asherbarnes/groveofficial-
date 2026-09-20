@@ -14,11 +14,13 @@ export const site = {
   bookingProvider: "GoodRun",
 } as const;
 
+/** Canonical primary nav — used by desktop header, mobile menu, and footer. */
 export const nav = [
   { href: "/programs", label: "Programs" },
   { href: "/community", label: "Community" },
   { href: "/book", label: "Book the Space" },
   { href: "/contact", label: "Contact" },
+  { href: "/scholarship", label: "Scholarship" },
 ] as const;
 
 export const primaryCta = {

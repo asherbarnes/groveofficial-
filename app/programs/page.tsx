@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Programs",
   description:
     "Showtime Basketball Academy: the year-round basketball school based at The Grove Community Collective in San Jose.",
+  alternates: { canonical: "/programs" },
 };
 
 export default function ProgramsPage() {

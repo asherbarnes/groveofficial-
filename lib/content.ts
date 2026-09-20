@@ -133,7 +133,7 @@ export const partners = [
   },
   {
     name: "Heart Workers Union",
-    url: "https://www.instagram.com/heartworkersunion/",
+    url: "https://www.heartworkersunion.org",
     logo: "/images/heartworkersunionlogo.avif",
   },
   {

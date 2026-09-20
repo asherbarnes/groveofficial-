@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Book the Space",
   description:
     "Book The Grove Community Collective facility in San Jose: regulation court, weight room, and event space via GoodRun.",
+  alternates: { canonical: "/book" },
 };
 
 export default function BookPage() {

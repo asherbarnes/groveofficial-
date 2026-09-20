@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Eric Cordova Scholarship",
   description:
     "The Eric Cordova Scholarship honors a longtime coach associated with The Grove and supports players through community contributions.",
+  alternates: { canonical: "/scholarship" },
 };
 
 export default function ScholarshipPage() {

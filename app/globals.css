@@ -18,6 +18,8 @@
 
   --background: var(--cream);
   --foreground: var(--black);
+  --font-display: "Oswald", Impact, Haettenschweiler, sans-serif;
+  --font-body: "Source Sans 3", system-ui, sans-serif;
 }
 
 @theme inline {

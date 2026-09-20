@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { ButtonLink } from "@/components/ButtonLink";
-import { nav, primaryCta, site } from "@/lib/site";
+import { nav, primaryCta, secondaryCta, site } from "@/lib/site";
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -63,7 +63,7 @@ export function Header() {
             size="md"
             className="!px-3 !py-2.5 !text-[0.65rem]"
           >
-            Join Showtime
+            {primaryCta.label}
           </ButtonLink>
           <button
             type="button"
@@ -117,13 +117,6 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/scholarship"
-              className="border-b border-cream/15 py-4 font-display text-3xl tracking-[0.06em]"
-              onClick={() => setOpen(false)}
-            >
-              Scholarship
-            </Link>
           </nav>
 
           <div className="grid gap-3 pb-8">
@@ -134,16 +127,16 @@ export function Header() {
               className="w-full"
               onClick={() => setOpen(false)}
             >
-              Join Showtime
+              {primaryCta.label}
             </ButtonLink>
             <ButtonLink
-              href="/book"
+              href={secondaryCta.href}
               variant="secondary"
               size="lg"
               className="w-full"
               onClick={() => setOpen(false)}
             >
-              Book the Space
+              {secondaryCta.label}
             </ButtonLink>
           </div>
         </div>
