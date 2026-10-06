@@ -14,8 +14,8 @@ export function SocialGrid() {
               See the work.
             </h2>
             <p className="mt-4 max-w-md text-cream/65">
-              The community lives on Instagram. Training days, gatherings, and
-              the day-to-day of The Grove.
+              Events are announced on Instagram first. Follow along for
+              clinics, runs, community events, and the day-to-day at The Grove.
             </p>
           </div>
           <ButtonLink
@@ -47,9 +47,6 @@ export function SocialGrid() {
             </div>
           ))}
         </div>
-        <p className="mt-6 text-sm text-cream/40">
-          Follow {site.instagramHandle} for more from the collective.
-        </p>
       </div>
     </section>
   );

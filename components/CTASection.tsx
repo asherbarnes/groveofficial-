@@ -1,17 +1,28 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { primaryCta, secondaryCta } from "@/lib/site";
+
+type Cta = { href: string; label: string; external?: boolean };
 
 type Props = {
   eyebrow?: string;
   title?: string;
   body?: string;
   tone?: "forest" | "black" | "cream";
+  primary?: Cta;
+  secondary?: Cta;
+  tertiary?: Cta | null;
+  note?: string;
 };
 
 export function CTASection({
   eyebrow = "The Grove",
   title = "Come grow with us.",
-  body = "Train with Showtime. Book the facility. Or reach out and get involved in the collective.",
+  body = "Train with Showtime, book the court for your group or event, or support the players coming up behind you.",
   tone = "forest",
+  primary = primaryCta,
+  secondary = secondaryCta,
+  tertiary = { href: "/scholarship#support", label: "Support the Scholarship" },
+  note,
 }: Props) {
   const bg =
     tone === "forest"
@@ -47,20 +58,30 @@ export function CTASection({
             {body}
           </p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/programs" variant={primaryVariant} size="lg">
-              Join Showtime
-            </ButtonLink>
-            <ButtonLink href="/book" variant={secondaryVariant} size="lg">
-              Book the Space
-            </ButtonLink>
-            <ButtonLink
-              href="/contact"
-              variant={tone === "cream" ? "ghost" : "secondary"}
-              size="lg"
-            >
-              Contact Us
-            </ButtonLink>
+            {[primary, secondary, tertiary].map((cta, index) =>
+              cta ? (
+                <ButtonLink
+                  key={cta.label}
+                  href={cta.href}
+                  external={cta.external}
+                  variant={index === 0 ? primaryVariant : secondaryVariant}
+                  size="lg"
+                >
+                  {cta.label}
+                </ButtonLink>
+              ) : null,
+            )}
           </div>
+          {note ? (
+            <p
+              className={[
+                "mt-4 text-sm",
+                tone === "cream" ? "text-gray" : "text-cream/55",
+              ].join(" ")}
+            >
+              {note}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

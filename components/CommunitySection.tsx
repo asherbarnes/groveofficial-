@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Photo } from "@/components/Photo";
 import { SectionHeading } from "@/components/SectionHeading";
-import { images, mission } from "@/lib/content";
+import { communityWork, images, mission } from "@/lib/content";
 
 export function CommunitySection() {
   return (
@@ -13,14 +13,13 @@ export function CommunitySection() {
               eyebrow="Community impact"
               title="We want to be the support we needed."
             >
-              <p>{mission.support}</p>
-              <p className="mt-4">{mission.commitment}</p>
+              <p>{mission.commitment}</p>
             </SectionHeading>
             <Link
               href="/community"
               className="mt-8 inline-flex font-display text-sm tracking-[0.16em] text-forest underline decoration-wood decoration-2 underline-offset-8"
             >
-              Read the community story →
+              See our community work →
             </Link>
           </div>
 
@@ -41,26 +40,17 @@ export function CommunitySection() {
               <div>
                 <p className="eyebrow text-forest">How we show up</p>
                 <ul className="mt-6 space-y-5">
-                  {[
-                    "Player scholarships",
-                    "Shoe donations",
-                    "Community outreach",
-                    "Mentorship through the game",
-                    "Community events",
-                  ].map((item) => (
+                  {communityWork.map((item) => (
                     <li
-                      key={item}
+                      key={item.title}
                       className="border-b border-black/10 pb-4 font-display text-2xl tracking-[0.04em] last:border-0"
                     >
-                      {item}
+                      {item.title}
                     </li>
                   ))}
                 </ul>
               </div>
-              <p className="text-sm text-gray">
-                Donors and boosters help drive this mission. As the collective
-                family grows, we keep having each other&apos;s back.
-              </p>
+              <p className="text-sm text-gray">{mission.donors}</p>
             </div>
           </div>
         </div>

@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     template: `%s · ${site.shortName}`,
   },
   description:
-    "The Grove Community Collective is a San Jose basketball community. Home of Showtime Basketball Academy, community outreach, and the Eric Cordova Scholarship.",
+    "The Grove Community Collective is a San Jose basketball nonprofit with a 10,000 sq ft training facility. Home of Showtime Basketball Academy and the Eric Cordova Scholarship. Book the court on GoodRun.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
     title: site.name,
     description:
-      "Where San Jose comes to grow through basketball. Community, Showtime Basketball Academy, and The Grove facility.",
+      "A San Jose basketball nonprofit and training facility. Home of Showtime Basketball Academy, the Eric Cordova Scholarship, free clinics, and an annual shoe drive.",
     locale: "en_US",
     type: "website",
     url: "/",

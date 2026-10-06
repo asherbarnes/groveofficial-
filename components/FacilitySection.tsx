@@ -2,7 +2,7 @@ import { ButtonLink } from "@/components/ButtonLink";
 import { Photo } from "@/components/Photo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { facility, images } from "@/lib/content";
-import { site } from "@/lib/site";
+import { secondaryCta, site } from "@/lib/site";
 
 export function FacilitySection() {
   return (
@@ -22,8 +22,8 @@ export function FacilitySection() {
             tone="dark"
           >
             <p>
-              {facility.summary} This is the physical home of the collective:
-              where Showtime trains, community gathers, and the work gets done.
+              {facility.summary} We own it, and it is a clean and welcoming
+              space for athletes and event attendees alike.
             </p>
           </SectionHeading>
 
@@ -44,8 +44,8 @@ export function FacilitySection() {
           </ul>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <ButtonLink href="/book" variant="cream" size="lg">
-              Book the Space
+            <ButtonLink href={secondaryCta.href} variant="cream" size="lg">
+              {secondaryCta.label}
             </ButtonLink>
             <p className="text-sm text-cream/50">
               Rentals via {site.bookingProvider}

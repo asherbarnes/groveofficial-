@@ -1,7 +1,7 @@
 import { ButtonLink } from "@/components/ButtonLink";
 import { Photo } from "@/components/Photo";
-import { images, mission } from "@/lib/content";
-import { site } from "@/lib/site";
+import { images } from "@/lib/content";
+import { primaryCta, secondaryCta, site } from "@/lib/site";
 
 export function Hero() {
   return (
@@ -23,15 +23,18 @@ export function Hero() {
           </p>
 
           <p className="animate-rise delay-3 mt-4 max-w-md text-cream/65">
-            {mission.short} Basketball is how we grow together.
+            A San Jose basketball nonprofit with its own{" "}
+            {site.facilitySqFt} sq ft training facility. Home of Showtime
+            Basketball Academy, the Eric Cordova Scholarship, free clinics,
+            and an annual shoe drive.
           </p>
 
           <div className="animate-rise delay-3 mt-8 flex flex-wrap gap-3">
-            <ButtonLink href="/programs" variant="cream" size="lg">
-              Join Showtime
+            <ButtonLink href={primaryCta.href} variant="cream" size="lg">
+              {primaryCta.label}
             </ButtonLink>
-            <ButtonLink href="/book" variant="secondary" size="lg">
-              Book the Space
+            <ButtonLink href={secondaryCta.href} variant="secondary" size="lg">
+              {secondaryCta.label}
             </ButtonLink>
           </div>
         </div>

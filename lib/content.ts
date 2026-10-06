@@ -1,6 +1,6 @@
 /**
  * Central content store.
- * Mark draft / unverified copy clearly. Do not invent facts.
+ * Every fact here traces to PRODUCT.md (Verified). Do not invent facts.
  */
 
 export const philosophy = {
@@ -12,24 +12,66 @@ export const philosophy = {
 export const mission = {
   short:
     "The Grove is an organization that services and enriches the local community through the sport of basketball.",
+  statement:
+    "The Grove Community Collective is a nonprofit organization based in San Jose, CA. Our mission is to strengthen our community through the platform of basketball.",
   support:
     "At the heart of our program, our goal is to be the support we needed when we were younger.",
   commitment:
-    "We are deeply committed to creating opportunities within our community, both for players and parents, through the sport of basketball. We offer scholarships to help offset training and camp/clinic costs, donate basketball shoes to players in need, and organize events and initiatives that bring outreach to our local community, promoting positivity and growth through basketball.",
+    "We are committed to creating opportunities for players and parents through the sport of basketball. We offer scholarships to help subsidize training costs, run free camps and clinics, and donate basketball shoes to players in need.",
+  donors:
+    "Our donors and boosters play a vital role. As the collective grows, we keep having each other's back.",
 } as const;
+
+/** Who the site serves, in priority order, and where each audience should go. */
+export const audiences = [
+  {
+    audience: "Players and families",
+    name: "Showtime Basketball Academy",
+    blurb:
+      "Year-round, development-first training in small groups of up to six. Your first session is free.",
+    href: "/programs",
+  },
+  {
+    audience: "Athletes and event organizers",
+    name: "Book the court",
+    blurb:
+      "A 10,000 sq ft facility with a FIBA-certified court, weight room, and event space. Book on GoodRun.",
+    href: "/book",
+  },
+  {
+    audience: "Donors and volunteers",
+    name: "Eric Cordova Scholarship",
+    blurb:
+      "Free training, mentorship, and equipment and travel support for youth in underserved communities.",
+    href: "/scholarship",
+  },
+  {
+    audience: "The San Jose community",
+    name: "Clinics, shoe drive, events",
+    blurb:
+      "Free camps and clinics, an annual shoe drive, and community events at the facility.",
+    href: "/community",
+  },
+  {
+    audience: "Businesses and partners",
+    name: "Partner with The Grove",
+    blurb: "Sponsorships, partnerships, and business inquiries.",
+    href: "/contact",
+  },
+] as const;
 
 export const facility = {
   summary:
-    "Located in the heart of San Jose, The Grove offers a 10,000 square foot training facility that doubles as a versatile event space.",
+    "Located in the heart of San Jose, The Grove is a 10,000 square foot training facility that doubles as a versatile event space.",
   features: [
-    { label: "10,000 sq ft", detail: "Training facility in San Jose" },
+    { label: "10,000 sq ft", detail: "Training facility and event space" },
     {
-      label: "FIBA-certified hardwood",
-      detail: "Professional-grade court flooring",
+      label: "FIBA-certified court",
+      detail:
+        "Hardwood flooring and hoops of the same quality used in the Olympic basketball games",
     },
-    { label: "Regulation court", detail: "Built for real game work" },
-    { label: "Weight room", detail: "Fully equipped training space" },
-    { label: "Event space", detail: "Facility doubles for gatherings & events" },
+    { label: "Regulation floor", detail: "A pro-basketball regulation court" },
+    { label: "Weight room", detail: "Fully equipped" },
   ],
 } as const;
 
@@ -37,76 +79,128 @@ export const showtime = {
   name: "Showtime Basketball Academy",
   summary:
     "The Grove is home to Showtime Basketball Academy, our year-round basketball school.",
-  /** Draft pathway: awaiting client verification */
-  pathwayDraft: true,
-  pathway: [
+  approach:
+    "Showtime is a development-first basketball academy built around long-term athlete growth, not an AAU-first program. Training runs in small groups of up to six players.",
+  freeSession: "Your first session is free. Try one of Showtime's small group sessions.",
+  /** Services as published on showtimebasketballacademy.com (2026-10-05). */
+  programs: [
     {
-      number: "01",
-      name: "Fundamentals",
+      name: "Fundamentalists",
       blurb:
-        "Build the base. Footwork, ball control, shooting form, and habits that stick.",
-      draft: true,
+        "For entry-level players with at least one year of playing experience.",
     },
     {
-      number: "02",
-      name: "Select",
+      name: "Academy",
       blurb:
-        "Raise the pace. Competitive training for players ready to sharpen decision-making and toughness.",
-      draft: true,
+        "Small-group training for experienced athletes. An evaluation comes first.",
     },
     {
-      number: "03",
-      name: "Elite",
-      blurb:
-        "Push the ceiling. High-level work for athletes chasing the next stage of their game.",
-      draft: true,
+      name: "Individual Training",
+      blurb: "1-on-1 and small-group sessions.",
+    },
+    {
+      name: "Athletic Development",
+      blurb: "Offered by Showtime. Ask them for current details.",
+    },
+  ],
+  values: [
+    { letter: "L", word: "Leadership" },
+    { letter: "E", word: "Effort" },
+    { letter: "A", word: "Attitude" },
+    { letter: "D", word: "Discipline" },
+  ],
+  joinSteps: [
+    {
+      title: "Send an inquiry",
+      body: "Tell Showtime about your player through their inquiry form.",
+    },
+    {
+      title: "Try a session",
+      body: "The first small-group session is free.",
+    },
+    {
+      title: "Get accepted, then enroll",
+      body: "Players are accepted into the program before buying a membership. The Academy starts with an evaluation.",
     },
   ],
 } as const;
 
-export const ecosystem = [
+export const communityWork = [
   {
-    name: "Showtime Basketball Academy",
-    status: "confirmed" as const,
-    blurb: "Year-round basketball school based at The Grove.",
-    href: "/programs",
-  },
-  {
-    name: "The Hoop Ministry",
-    status: "unconfirmed" as const,
-    blurb: "Details pending verification.",
-    href: "/community",
-  },
-  {
-    name: "Eric Cordova Scholarship",
-    status: "confirmed" as const,
-    blurb:
-      "Player support funded through the nonprofit and community contributions.",
+    title: "Scholarships",
+    body: "The Eric Cordova Memorial Scholarship helps players cover training costs and adds mentorship and support for equipment, travel, and tournament fees.",
     href: "/scholarship",
   },
   {
-    name: "Shoe donations",
-    status: "confirmed" as const,
-    blurb: "Basketball shoes donated to players in need.",
-    href: "/community",
+    title: "Annual shoe drive",
+    body: "Our goal is to provide every child in our program with a brand-new pair of basketball shoes. We also give out like-new shoes for outdoor play.",
+    href: null,
   },
   {
-    name: "Community outreach",
-    status: "confirmed" as const,
-    blurb: "Events and initiatives that bring the game back to the neighborhood.",
-    href: "/community",
+    title: "Free camps and clinics",
+    body: "Over the years we have organized and supported basketball camps and clinics, some with hundreds of kids in attendance.",
+    href: null,
+  },
+  {
+    title: "Nonprofit partners",
+    body: "We partner with organizations that offer academic scholarships, support youth girls' basketball, provide mental health resources, and more.",
+    href: null,
+  },
+] as const;
+
+/** Historical proof only. Never present as upcoming. Source: research/events-inventory.md */
+type PastEvent = { date: string; name: string; detail: string; memorial?: boolean };
+
+export const pastEvents: readonly PastEvent[] = [
+  {
+    date: "Feb 2024",
+    name: "The Grand Opening",
+    detail: "Hundreds of community members, friends, and family opened the facility with us.",
+  },
+  {
+    date: "May 2024",
+    name: "Celebration of Life for Eric Cordova",
+    memorial: true,
+    detail: "Nearly 200 people gathered on the court. The scholarship in his name was established that day.",
+  },
+  {
+    date: "Dec 2024",
+    name: "Q&A with Dre Greenlaw",
+    detail: "The San Francisco 49ers player talked with our community about his upbringing and his path to the NFL.",
+  },
+  {
+    date: "Mar 2025",
+    name: "Showtime Playmaker's Clinic",
+    detail: "A free clinic for grades 5 to 8 on skill work, decision-making, and defense.",
+  },
+  {
+    date: "Aug 2025",
+    name: "The Cookout",
+    detail: "A summer gathering with more than 15 sponsors and vendors, food, live music, and shooting contests.",
   },
 ] as const;
 
 export const scholarship = {
-  name: "The Eric Cordova Scholarship",
+  name: "The Eric Cordova Memorial Scholarship",
   story:
     "For over a decade, Coach Eric gave his all to the game and the kids who played it.",
+  quote: "Success is not about the wins or losses. It's about shaping lives.",
+  origin:
+    "The scholarship was established on May 12, 2024, at Coach Eric's Celebration of Life, where nearly 200 people gathered on the court at The Grove.",
   funding:
-    "This scholarship is funded through our nonprofit and the generous contributions of those who believe in Coach Eric's vision.",
-  purpose:
-    "The scholarship helps offset training and camp/clinic costs so players can keep growing through the game.",
-  /** Application mechanics are unverified */
+    "It is funded through our nonprofit and the generous contributions of those who believe in Coach Eric's vision.",
+  provides: [
+    "Free basketball training for youth in underserved communities",
+    "Access to mentorship and a life skills workshop",
+    "Support for equipment, travel, and tournament fees",
+  ],
+  waysToHelp: [
+    "Donate to the scholarship fund",
+    "Sponsor a young athlete",
+    "Share Coach Eric's story",
+    "Volunteer your time or expertise",
+  ],
+  /** Eligibility, application process, deadlines, amounts: unverified (PRODUCT.md Q15) */
   applicationVerified: false,
 } as const;
 
@@ -167,7 +261,7 @@ export const images = {
   },
   community: {
     src: "/images/dregreenlawwithkids.avif",
-    alt: "Community moment with kids at The Grove",
+    alt: "Dre Greenlaw with kids at The Grove",
   },
   communityHuddle: {
     src: "/images/kidsinhuddle.avif",
@@ -184,10 +278,6 @@ export const images = {
   scholarshipMemorial: {
     src: "/images/ericcordovamemorialscholarship.avif",
     alt: "Eric Cordova Memorial Scholarship",
-  },
-  detail: {
-    src: "/images/kidsdoingfootworkdrills.avif",
-    alt: "Training details on the Grove court",
   },
   social: [
     {

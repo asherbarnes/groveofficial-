@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { images } from "@/lib/content";
-import { nav, site } from "@/lib/site";
+import { nav, primaryCta, secondaryCta, showtimeLinks, site } from "@/lib/site";
 
 export function Footer() {
   return (
@@ -22,15 +22,16 @@ export function Footer() {
               </span>
             </Link>
             <p className="mt-4 max-w-sm text-cream/70">
-              A San Jose basketball community since {site.foundedShort}. The
-              facility is home. The collective is the point.
+              A San Jose nonprofit strengthening the community through
+              basketball since {site.founded}. Home of Showtime Basketball
+              Academy.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href="/programs" variant="cream" size="md">
-                Join Showtime
+              <ButtonLink href={primaryCta.href} variant="cream" size="md">
+                {primaryCta.label}
               </ButtonLink>
-              <ButtonLink href="/book" variant="secondary" size="md">
-                Book the Space
+              <ButtonLink href={secondaryCta.href} variant="secondary" size="md">
+                {secondaryCta.label}
               </ButtonLink>
             </div>
           </div>
@@ -64,8 +65,19 @@ export function Footer() {
                   {site.instagramHandle}
                 </a>
               </li>
-              <li className="text-cream/55">{site.location}</li>
-              <li className="text-cream/55">Founded {site.founded}</li>
+              <li>
+                <a
+                  href={showtimeLinks.siteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-cream/80 transition-colors hover:text-wood-light"
+                >
+                  Showtime Basketball Academy
+                </a>
+              </li>
+              <li className="text-cream/55">
+                {site.street}, {site.location}
+              </li>
             </ul>
           </div>
         </div>
@@ -76,7 +88,7 @@ export function Footer() {
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
-          <p>San Jose, California · Community through basketball</p>
+          <p>Est. {site.founded} · San Jose, California</p>
         </div>
       </div>
     </footer>

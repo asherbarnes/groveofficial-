@@ -41,41 +41,43 @@ Real Grove photography is now wired. Remaining gaps:
 - [ ] Exact street address
 - [ ] Hours of operation
 - [ ] Preferred form backend (Formspree, Resend, HubSpot, etc.)
-- [ ] Set `NEXT_PUBLIC_CONTACT_EMAIL` when email is confirmed
+- [ ] **Set `NEXT_PUBLIC_CONTACT_EMAIL`.** Until it is set, /contact shows an Instagram DM prompt instead of a form (no undeliverable submissions). Once set, the form opens a prefilled email (mailto)
 
 ## Showtime Basketball Academy
 
-Treat Fundamentals / Select / Elite as **draft** until confirmed.
+The site now lists Showtime's current published programs (Fundamentalists, Academy, Individual Training, Athletic Development). The old Fundamentals / Select / Elite draft pathway has been removed.
 
-- [ ] Confirm pathway names and descriptions
-- [ ] Ages / divisions
-- [ ] Pricing
-- [ ] Schedules / season calendar
-- [ ] Curriculum overview
-- [ ] Coach names and approved biographies
-- [ ] Enrollment / registration URL or process
-- [ ] “Join Showtime” final destination (form, external registration, email)
+- [ ] Confirm program names (Showtime site vs. "Fundamentalist and Select" on thegrove.work; is Elite still offered?) (PRODUCT.md Q6)
+- [ ] Academy experience requirement (2.5+ vs 3+ years), currently omitted (Q7)
+- [ ] Approved one-line description for Athletic Development (none published)
+- [ ] Ages / divisions (Q11)
+- [ ] Pricing on The Grove's site, or link only (Q9). Site currently links to Showtime's memberships page
+- [ ] Coach names and approved biographies (Q10)
+- [ ] **"Join Showtime" destination (Q8).** Site uses `minosrec.com/showtime-basketball-academy/general-inquiry` (linked from Showtime's own site). The `showtimebasketballacademy.com/inquire` link used by thegrove.work returned **404** on 2026-10-05
+- [ ] Confirm the join steps on /programs (inquiry, free session, acceptance/evaluation, membership) match Showtime's real sequence
 
 ## The Hoop Ministry
 
+Removed from the site entirely (it was previously shown as "unconfirmed" on the home page).
+
 - [ ] Confirm whether this is an active Grove program
 - [ ] Approved short description
-- [ ] Any public-facing CTA or page treatment
 
 ## Eric Cordova Scholarship
 
 - [ ] Approved longer biography / story (beyond public site sentence)
-- [ ] Eligibility rules
+- [ ] Eligibility rules (site says details aren't published yet and points families to Instagram)
 - [ ] Application process and deadlines
-- [ ] Award amounts / what costs are covered
-- [ ] Donation instructions or link
-- [ ] Any required legal/nonprofit disclaimer
+- [ ] Award amounts
+- [ ] Online donation link (Q16). "I want to help" currently goes to /contact?topic=donate. Don't link thegrove.work/donate; it disappears at the Wix cutover
+- [ ] 501(c)(3) status / EIN before any tax-deductible wording (Q1)
 
 ## Community & campaigns
 
 - [ ] Mural project — confirm active status before featuring as current
 - [ ] Current outreach initiatives with approved copy
-- [ ] Event listings (only when real and dated)
+- [ ] Event listings (only when real and dated). /community and /book show past events as history only
+- [ ] Is the shoe drive still annual, and when does it run? (Q17)
 - [ ] Testimonials — only with written permission (none invented)
 
 ## Partners

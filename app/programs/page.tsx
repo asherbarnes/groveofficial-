@@ -4,11 +4,12 @@ import { CTASection } from "@/components/CTASection";
 import { Photo } from "@/components/Photo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { images, showtime } from "@/lib/content";
+import { joinShowtimeCta, showtimeLinks } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Programs",
   description:
-    "Showtime Basketball Academy: the year-round basketball school based at The Grove Community Collective in San Jose.",
+    "Showtime Basketball Academy trains year-round at The Grove in San Jose: development-first, small groups of up to six, and your first session is free.",
   alternates: { canonical: "/programs" },
 };
 
@@ -25,14 +26,28 @@ export default function ProgramsPage() {
               game.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-cream/70">
-              {showtime.summary} Come get some work in, with a community behind
-              you.
+              {showtime.summary} {showtime.approach}
             </p>
-            <div className="mt-8">
-              <ButtonLink href="#pathway" variant="cream" size="lg">
-                See the pathway
+            <p className="mt-4 max-w-xl font-display text-lg tracking-[0.06em] text-wood-light">
+              {showtime.freeSession}
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <ButtonLink
+                href={joinShowtimeCta.href}
+                external
+                variant="cream"
+                size="lg"
+              >
+                {joinShowtimeCta.label}
+              </ButtonLink>
+              <ButtonLink href="#programs" variant="secondary" size="lg">
+                See programs
               </ButtonLink>
             </div>
+            <p className="mt-4 text-sm text-cream/55">
+              Opens Showtime&apos;s inquiry form. Showtime handles enrollment,
+              schedules, and pricing.
+            </p>
           </div>
           <Photo
             src={images.showtime.src}
@@ -43,101 +58,99 @@ export default function ProgramsPage() {
       </section>
 
       <section className="bg-cream py-16 md:py-24">
-        <div className="container-narrow">
-          <SectionHeading eyebrow="The academy" title="Year-round. Based at The Grove.">
-            <p>
-              Showtime is the primary basketball development program of The Grove
-              Community Collective. The facility is the home. The academy is where
-              players put in the work, from first reps to competitive growth.
-            </p>
-            <p className="mt-4">
-              Ages, schedules, pricing, and coach details will be published once
-              confirmed. Until then, reach out through Contact or follow{" "}
-              <span className="text-forest">@the.grove.cc</span> for updates.
-            </p>
-          </SectionHeading>
-        </div>
-      </section>
-
-      <section id="pathway" className="bg-forest-dark py-20 text-cream md:py-28">
         <div className="container-grove">
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <SectionHeading
-              eyebrow="Draft pathway"
-              title="Fundamentals. Select. Elite."
-              tone="dark"
-            >
-              <p>
-                A progressive path through Showtime. Content below is draft until
-                verified by The Grove.
-              </p>
-            </SectionHeading>
-            <p className="draft-note text-cream/50 md:mb-2">Unverified details</p>
-          </div>
-
-          <div className="mt-14 space-y-6">
-            {showtime.pathway.map((level, index) => (
-              <article
-                key={level.number}
-                className={[
-                  "grid gap-6 border border-cream/15 p-6 md:grid-cols-[8rem_1fr] md:p-10",
-                  index === 0
-                    ? "bg-forest"
-                    : index === 1
-                      ? "bg-black"
-                      : "bg-wood text-black border-wood",
-                ].join(" ")}
-              >
-                <p
-                  className={[
-                    "font-display text-5xl tracking-[0.04em]",
-                    index === 2 ? "text-black/70" : "text-cream/40",
-                  ].join(" ")}
-                >
-                  {level.number}
-                </p>
-                <div>
-                  <h2
-                    className={[
-                      "font-display tracking-[0.06em]",
-                      index === 2 ? "text-5xl md:text-6xl" : "text-4xl md:text-5xl",
-                    ].join(" ")}
-                  >
-                    {level.name}
-                  </h2>
-                  <p
-                    className={[
-                      "mt-4 max-w-2xl text-lg",
-                      index === 2 ? "text-black/75" : "text-cream/70",
-                    ].join(" ")}
-                  >
-                    {level.blurb}
-                  </p>
-                  <p
-                    className={[
-                      "mt-4 text-sm",
-                      index === 2 ? "text-black/55" : "text-cream/45",
-                    ].join(" ")}
-                  >
-                    Ages, curriculum, and schedule: pending confirmation.
-                  </p>
-                </div>
-              </article>
+          <SectionHeading eyebrow="How to join" title="Three steps to the court." />
+          <ol className="mt-12 grid gap-8 md:grid-cols-3">
+            {showtime.joinSteps.map((step, index) => (
+              <li key={step.title} className="border-t-2 border-forest pt-5">
+                <span className="font-display text-sm tracking-[0.14em] text-forest">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h2 className="mt-2 font-display text-2xl tracking-[0.05em] md:text-3xl">
+                  {step.title}
+                </h2>
+                <p className="mt-3 text-black/70">{step.body}</p>
+              </li>
             ))}
-          </div>
-
-          <div className="mt-12">
-            <ButtonLink href="/contact" variant="cream" size="lg">
-              Join Showtime / Contact Us
+          </ol>
+          <div className="mt-12 flex flex-wrap gap-3">
+            <ButtonLink
+              href={joinShowtimeCta.href}
+              external
+              variant="primary"
+              size="lg"
+            >
+              Start with an inquiry
+            </ButtonLink>
+            <ButtonLink
+              href={showtimeLinks.membershipsUrl}
+              external
+              variant="ghost"
+              size="lg"
+            >
+              View memberships
             </ButtonLink>
           </div>
         </div>
       </section>
 
+      <section id="programs" className="scroll-mt-20 bg-forest-dark py-20 text-cream md:py-28">
+        <div className="container-grove">
+          <SectionHeading eyebrow="Programs" title="Training at The Grove." tone="dark">
+            <p>
+              Programs as listed by Showtime. Schedules, age groups, and current
+              pricing are on Showtime&apos;s site.
+            </p>
+          </SectionHeading>
+
+          <div className="mt-14 grid gap-px border border-cream/15 bg-cream/15 md:grid-cols-2">
+            {showtime.programs.map((program) => (
+              <article key={program.name} className="bg-forest-dark p-8 md:p-10">
+                <h2 className="font-display text-3xl tracking-[0.05em] md:text-4xl">
+                  {program.name}
+                </h2>
+                <p className="mt-4 max-w-md text-lg text-cream/70">
+                  {program.blurb}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-cream py-16 md:py-24">
+        <div className="container-grove grid gap-10 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+          <SectionHeading eyebrow="Showtime standards" title="L.E.A.D.">
+            <p>The standards every Showtime player trains by.</p>
+          </SectionHeading>
+          <ul className="grid grid-cols-2 gap-px border border-black/15 bg-black/15">
+            {showtime.values.map((value) => (
+              <li key={value.word} className="bg-cream p-6">
+                <span className="font-display text-5xl text-forest">
+                  {value.letter}
+                </span>
+                <p className="mt-1 font-display text-xl tracking-[0.06em]">
+                  {value.word}
+                </p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
       <CTASection
-        tone="cream"
+        tone="black"
+        eyebrow="Showtime Basketball Academy"
         title="Ready to put work in?"
-        body="Tell us about your player or your goals. We'll point you toward the right next step with Showtime."
+        body="Send Showtime an inquiry to set up your first session. It's free."
+        primary={joinShowtimeCta}
+        secondary={{
+          href: showtimeLinks.instagramUrl,
+          label: `Follow ${showtimeLinks.instagramHandle}`,
+          external: true,
+        }}
+        tertiary={null}
+        note="Questions about training go to Showtime directly. The Grove's contact form is for business and partner inquiries."
       />
     </>
   );
