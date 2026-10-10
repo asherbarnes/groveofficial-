@@ -1,28 +1,24 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
+import { mission } from "@/lib/content";
 import { site } from "@/lib/site";
 import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.websiteUrl),
   title: {
-    default: `${site.name} · San Jose`,
+    default: site.name,
     template: `%s · ${site.shortName}`,
   },
-  description:
-    "The Grove Community Collective is a San Jose basketball nonprofit with a 10,000 sq ft training facility. Home of Showtime Basketball Academy and the Eric Cordova Scholarship. Book the court on GoodRun.",
-  alternates: {
-    canonical: "/",
-  },
+  description: mission.short,
+  // Canonical, og:url, and og:title are set per page (lib/metadata.ts).
   openGraph: {
-    title: site.name,
-    description:
-      "A San Jose basketball nonprofit and training facility. Home of Showtime Basketball Academy, the Eric Cordova Scholarship, free clinics, and an annual shoe drive.",
+    siteName: site.name,
     locale: "en_US",
     type: "website",
-    url: "/",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
@@ -44,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col antialiased">
         <a
           href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-cream focus:px-4 focus:py-2"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:bg-paper focus:px-4 focus:py-2 focus:text-black"
         >
           Skip to content
         </a>

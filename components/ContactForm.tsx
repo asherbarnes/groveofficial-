@@ -17,8 +17,10 @@ type TopicValue = (typeof contactTopics)[number]["value"];
 
 const contactEmail = process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() ?? "";
 
+// Sits on the forest panel: paper fields are 12:1 against forest (WCAG 1.4.11
+// needs 3:1). Focus uses the global ring.
 const fieldClass =
-  "mt-2 w-full border border-black/20 bg-white px-4 py-3 outline-none transition-colors focus:border-forest";
+  "mt-2 w-full rounded-[2px] border border-paper bg-paper px-4 py-3 text-black";
 
 function isTopic(value: string | null): value is TopicValue {
   return contactTopics.some((topic) => topic.value === value);
@@ -41,12 +43,12 @@ export function ContactForm({
   if (!contactEmail) {
     return (
       <div className="space-y-4" data-testid="contact-fallback">
-        <p className="text-black/75">
+        <p className="text-paper/80">
           The fastest way to reach The Grove is a direct message on Instagram.
           Include your name, what you are reaching out about, and the best way
           to reach you.
         </p>
-        <ButtonLink href={site.instagramUrl} external variant="primary" size="lg">
+        <ButtonLink href={site.instagramUrl} external variant="light" size="lg">
           Message {site.instagramHandle}
         </ButtonLink>
       </div>
@@ -83,22 +85,22 @@ export function ContactForm({
     <form onSubmit={onSubmit} className="space-y-5">
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
-          <span className="eyebrow text-forest">Name</span>
+          <span className="label text-paper/80">Name</span>
           <input required name="name" type="text" autoComplete="name" className={fieldClass} />
         </label>
         <label className="block">
-          <span className="eyebrow text-forest">Email</span>
+          <span className="label text-paper/80">Email</span>
           <input required name="email" type="email" autoComplete="email" className={fieldClass} />
         </label>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2">
         <label className="block">
-          <span className="eyebrow text-forest">Phone (optional)</span>
+          <span className="label text-paper/80">Phone (optional)</span>
           <input name="phone" type="tel" autoComplete="tel" className={fieldClass} />
         </label>
         <label className="block">
-          <span className="eyebrow text-forest">Topic</span>
+          <span className="label text-paper/80">Topic</span>
           <select name="topic" className={fieldClass} defaultValue={defaultTopic}>
             {contactTopics.map((topic) => (
               <option key={topic.value} value={topic.value}>
@@ -110,22 +112,22 @@ export function ContactForm({
       </div>
 
       <label className="block">
-        <span className="eyebrow text-forest">Message</span>
+        <span className="label text-paper/80">Message</span>
         <textarea required name="message" rows={6} className={`${fieldClass} resize-y`} />
       </label>
 
       <button
         type="submit"
-        className="inline-flex items-center justify-center rounded-sm bg-forest-light px-6 py-3.5 font-display text-sm uppercase tracking-[0.16em] text-black transition-colors hover:bg-forest-lighter"
+        className="inline-flex min-h-12 items-center justify-center rounded-[2px] border border-paper bg-paper px-6 font-display text-sm font-medium uppercase tracking-[0.1em] text-black transition-colors hover:bg-white"
       >
         Send inquiry
       </button>
-      <p className="text-sm text-gray">Opens your email app with your message filled in.</p>
+      <p className="text-sm text-paper/70">Opens your email app with your message filled in.</p>
 
       {sent ? (
-        <p className="text-sm text-forest" role="status">
+        <p className="text-sm text-paper" role="status">
           Your email app should open now. If it didn&apos;t, email us at{" "}
-          <a href={`mailto:${contactEmail}`} className="underline decoration-wood underline-offset-4">
+          <a href={`mailto:${contactEmail}`} className="underline decoration-paper/60 underline-offset-4">
             {contactEmail}
           </a>
           .

@@ -1,58 +1,55 @@
 import Link from "next/link";
+import { ArrowRight } from "@/components/Icon";
 import { Photo } from "@/components/Photo";
 import { SectionHeading } from "@/components/SectionHeading";
 import { communityWork, images, mission } from "@/lib/content";
 
 export function CommunitySection() {
   return (
-    <section className="bg-cream py-20 md:py-28">
-      <div className="container-grove">
-        <div className="grid items-start gap-12 lg:grid-cols-[0.9fr_1.1fr]">
-          <div className="lg:sticky lg:top-28">
-            <SectionHeading
-              eyebrow="Community impact"
-              title="We want to be the support we needed."
-            >
-              <p>{mission.commitment}</p>
-            </SectionHeading>
-            <Link
-              href="/community"
-              className="mt-8 inline-flex font-display text-sm tracking-[0.16em] text-forest underline decoration-wood decoration-2 underline-offset-8"
-            >
-              See our community work →
-            </Link>
-          </div>
+    <section className="bg-paper py-20 md:py-28">
+      <div className="container-grove grid items-start gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
+        <div>
+          <SectionHeading
+            title={
+              <>
+                We want to be <span className="block">the support we needed.</span>
+              </>
+            }
+          >
+            <p>{mission.commitment}</p>
+          </SectionHeading>
 
-          <div className="grid gap-6 sm:grid-cols-2">
-            <div className="space-y-6 sm:mt-12">
-              <Photo
-                src={images.community.src}
-                alt={images.community.alt}
-                aspect="aspect-[4/3]"
-              />
-              <Photo
-                src={images.communityHuddle.src}
-                alt={images.communityHuddle.alt}
-                aspect="aspect-square"
-              />
-            </div>
-            <div className="flex flex-col justify-between gap-8 border border-black/15 p-6 sm:p-8">
-              <div>
-                <p className="eyebrow text-forest">How we show up</p>
-                <ul className="mt-6 space-y-5">
-                  {communityWork.map((item) => (
-                    <li
-                      key={item.title}
-                      className="border-b border-black/10 pb-4 font-display text-2xl tracking-[0.04em] last:border-0"
-                    >
-                      {item.title}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p className="text-sm text-gray">{mission.donors}</p>
-            </div>
-          </div>
+          <ul className="mt-10 grid border-t border-black/15 sm:grid-cols-2">
+            {communityWork.map((item, index) => (
+              <li
+                key={item.title}
+                className={[
+                  "border-b border-black/15 py-5 font-display text-2xl",
+                  index % 2 === 1 ? "sm:border-l sm:pl-6" : "sm:pr-6",
+                ].join(" ")}
+              >
+                {item.title}
+              </li>
+            ))}
+          </ul>
+
+          <Link
+            href="/community"
+            className="mt-6 inline-flex min-h-11 items-center gap-2 font-display text-sm font-medium tracking-[0.1em] text-forest uppercase underline decoration-forest/40 decoration-1 underline-offset-[0.5em] transition-colors hover:decoration-forest"
+          >
+            See our community work
+            <ArrowRight />
+          </Link>
+        </div>
+
+        <div className="lg:sticky lg:top-28">
+          <Photo
+            src={images.communityHuddle.src}
+            alt={images.communityHuddle.alt}
+            aspect="aspect-square"
+            sizes="(max-width: 1024px) 100vw, 560px"
+          />
+          <p className="mt-4 max-w-md text-sm text-gray">{mission.donors}</p>
         </div>
       </div>
     </section>

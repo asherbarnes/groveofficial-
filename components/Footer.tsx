@@ -1,68 +1,62 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ButtonLink } from "@/components/ButtonLink";
-import { images } from "@/lib/content";
-import { nav, primaryCta, secondaryCta, showtimeLinks, site } from "@/lib/site";
+import { ArrowUpRight } from "@/components/Icon";
+import { brand } from "@/lib/content";
+import { nav, showtimeLinks, site } from "@/lib/site";
+
+const linkClass =
+  "inline-flex min-h-9 items-center gap-1.5 text-paper/80 transition-colors hover:text-paper";
 
 export function Footer() {
   return (
-    <footer className="bg-black text-cream">
-      <div className="container-grove py-14 md:py-20">
-        <div className="grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
-            <Link href="/" aria-label={`${site.shortName} home`}>
-              <span className="relative block h-12 w-40">
-                <Image
-                  src={images.logoWhite.src}
-                  alt={images.logoWhite.alt}
-                  fill
-                  className="object-contain object-left"
-                  sizes="160px"
-                />
-              </span>
+    <footer className="bg-black text-paper">
+      <div className="container-grove py-16 md:py-20">
+        <div className="grid gap-12 md:grid-cols-[1.5fr_1fr_1fr]">
+          <div className="flex items-start gap-7">
+            <Link href="/" aria-label={`${site.shortName} home`} className="shrink-0">
+              <Image
+                src={brand.lockupWhite.src}
+                alt=""
+                width={brand.lockupWhite.width}
+                height={brand.lockupWhite.height}
+                className="h-32 w-auto md:h-36"
+              />
             </Link>
-            <p className="mt-4 max-w-sm text-cream/70">
+            <p className="max-w-xs text-paper/70">
               A San Jose nonprofit strengthening the community through
               basketball since {site.founded}. Home of Showtime Basketball
               Academy.
             </p>
-            <div className="mt-6 flex flex-wrap gap-3">
-              <ButtonLink href={primaryCta.href} variant="cream" size="md">
-                {primaryCta.label}
-              </ButtonLink>
-              <ButtonLink href={secondaryCta.href} variant="secondary" size="md">
-                {secondaryCta.label}
-              </ButtonLink>
-            </div>
           </div>
 
-          <div>
-            <p className="eyebrow text-cream/50">Navigate</p>
-            <ul className="mt-4 space-y-2">
+          <nav aria-labelledby="footer-nav-heading">
+            <h2 id="footer-nav-heading" className="label text-paper/65">
+              Navigate
+            </h2>
+            <ul className="mt-3">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-cream/80 transition-colors hover:text-wood-light"
-                  >
+                  <Link href={item.href} className={linkClass}>
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-          </div>
+          </nav>
 
           <div>
-            <p className="eyebrow text-cream/50">Connect</p>
-            <ul className="mt-4 space-y-2">
+            <h2 className="label text-paper/65">Connect</h2>
+            <ul className="mt-3">
               <li>
                 <a
                   href={site.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cream/80 transition-colors hover:text-wood-light"
+                  className={linkClass}
                 >
                   {site.instagramHandle}
+                  <ArrowUpRight className="text-sm" />
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </li>
               <li>
@@ -70,25 +64,25 @@ export function Footer() {
                   href={showtimeLinks.siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-cream/80 transition-colors hover:text-wood-light"
+                  className={linkClass}
                 >
                   Showtime Basketball Academy
+                  <ArrowUpRight className="text-sm" />
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
               </li>
-              <li className="text-cream/55">
-                {site.street}, {site.location}
+              <li className="flex min-h-9 items-center text-paper/65">
+                {site.street}, San Jose
               </li>
             </ul>
           </div>
         </div>
 
-        <hr className="rule mt-12 border-0 bg-cream/15" />
-
-        <div className="mt-6 flex flex-col gap-2 text-sm text-cream/45 md:flex-row md:items-center md:justify-between">
+        <div className="mt-14 flex flex-col gap-2 border-t border-paper/15 pt-6 text-sm text-paper/65 md:flex-row md:items-center md:justify-between">
           <p>
             © {new Date().getFullYear()} {site.name}
           </p>
-          <p>Est. {site.founded} · San Jose, California</p>
+          <p>Est. {site.founded} · {site.location}</p>
         </div>
       </div>
     </footer>

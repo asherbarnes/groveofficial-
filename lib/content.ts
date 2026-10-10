@@ -149,36 +149,57 @@ export const communityWork = [
 ] as const;
 
 /** Historical proof only. Never present as upcoming. Source: research/events-inventory.md */
-type PastEvent = { date: string; name: string; detail: string; memorial?: boolean };
+type PastEvent = {
+  /** ISO date, from PRODUCT.md (Past events) */
+  on: string;
+  date: string;
+  name: string;
+  detail: string;
+  memorial?: boolean;
+  /** Run by Showtime: the date renders on an amber chip (Showtime's color) */
+  showtime?: boolean;
+};
 
 export const pastEvents: readonly PastEvent[] = [
   {
+    on: "2024-02-24",
     date: "Feb 2024",
     name: "The Grand Opening",
     detail: "Hundreds of community members, friends, and family opened the facility with us.",
   },
   {
+    on: "2024-05-12",
     date: "May 2024",
     name: "Celebration of Life for Eric Cordova",
     memorial: true,
     detail: "Nearly 200 people gathered on the court. The scholarship in his name was established that day.",
   },
   {
+    on: "2024-12-17",
     date: "Dec 2024",
     name: "Q&A with Dre Greenlaw",
     detail: "The San Francisco 49ers player talked with our community about his upbringing and his path to the NFL.",
   },
   {
+    on: "2025-03-01",
     date: "Mar 2025",
     name: "Showtime Playmaker's Clinic",
+    showtime: true,
     detail: "A free clinic for grades 5 to 8 on skill work, decision-making, and defense.",
   },
   {
+    on: "2025-08-03",
     date: "Aug 2025",
     name: "The Cookout",
     detail: "A summer gathering with more than 15 sponsors and vendors, food, live music, and shooting contests.",
   },
 ] as const;
+
+/** thegrove.work's date style: 2.24.2024 */
+export function flyerDate(iso: string) {
+  const [year, month, day] = iso.split("-").map(Number);
+  return `${month}.${day}.${year}`;
+}
 
 export const scholarship = {
   name: "The Eric Cordova Memorial Scholarship",
@@ -242,11 +263,20 @@ export const partners = [
   },
 ] as const;
 
+/**
+ * The Grove's own logo, from thegrove.work's high-resolution PNGs (trimmed; the
+ * white version is the black artwork recolored). Use pending client OK and
+ * vector originals (PRODUCT.md Q26). Never redraw or substitute it.
+ */
+export const brand = {
+  markWhite: { src: "/brand/grove-mark-white.png", width: 249, height: 400 },
+  markBlack: { src: "/brand/grove-mark-black.png", width: 249, height: 400 },
+  lockupWhite: { src: "/brand/grove-lockup-white.png", width: 384, height: 600 },
+  lockupBlack: { src: "/brand/grove-lockup-black.png", width: 384, height: 600 },
+  alt: "The Grove",
+} as const;
+
 export const images = {
-  logoWhite: {
-    src: "/images/grove-logo-white.avif",
-    alt: "The Grove Community Collective logo",
-  },
   hero: {
     src: "/images/zoomedoutgroupphotokids.avif",
     alt: "Youth players gathered on the court at The Grove",

@@ -35,6 +35,7 @@ export const showtimeLinks = {
 /** Canonical primary nav — used by desktop header, mobile menu, and footer. */
 export const nav = [
   { href: "/community", label: "Community" },
+  { href: "/events", label: "Events" },
   { href: "/programs", label: "Programs" },
   { href: "/scholarship", label: "Scholarship" },
   { href: "/book", label: "Book the Space" },

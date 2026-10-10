@@ -11,13 +11,13 @@ This file is the citation log behind `PRODUCT.md`. All sources were retrieved 20
 
 | Key | URL | Method and reliability |
 |---|---|---|
-| G | https://www.thegrove.work/ plus `/events`, `/non-profit`, `/showtimebasketball`, `/ericcordova`, `/contact`, `/donate` | Pages fetched with curl and the text extracted verbatim. Official Wix site; sitemap lastmod 2026-08-14. `/donate` is not in the nav. |
+| G | https://www.thegrove.work/ plus `/events`, `/non-profit`, `/showtimebasketball`, `/ericcordova`, `/contact`, `/donate` | **The Grove's old official website** (Wix), which this build replaces. Text first fetched with curl; re-reviewed on 2026-10-05 in a real browser (Playwright, 1440px and 390px) for rendered layout, hover text, meta tags and design. Sitemap lastmod 2026-08-14 and lists only `/`, `/events`, `/ericcordova`, `/donate`. `/donate` is not in the menu. Design findings are in `thegrove-work-brand-review.md`. |
 | SBA | https://www.showtimebasketballacademy.com/ plus `/aboutus`, `/academy`, `/fundamentalists`, `/individualtraining`, `/memberships`, `/showtime-faqs`, `/event-list` | Pages fetched with curl and the text extracted verbatim. Run by a separate company, "SHOWTIME BASKETBALL LLC". |
 | IG | https://www.instagram.com/the.grove.cc/ | Behind a login wall. Bio and counts come from a model summary only. Weak. |
 | ATLY | https://www.atly.com/location/TheGroveCommunityCollective | Third-party directory with no update date. |
 | SJ3 | https://www.hoopitup.com/slamjose, https://sjsa.org/slam-jose-announcement/, Eventbrite "Slam Jose! Community Hoop Festival" | Seen in web search results only. Not specific to The Grove. |
 | PP | https://projects.propublica.org/nonprofits/ (via web search) | Searching "Grove Community Collective" returned no matching San Jose org. A different "Grove Collective Foundation" (DC, EIN 87-4015431) is unrelated. |
-| OLD | https://grove.work | **The Grove's former website** (confirmed by the client), an authoritative historical source. Today it redirects to `/lander`, a GoDaddy parking page; the current registration is from 2021-08-03 and privacy-protected. Wayback captures from 2021-12-05, 2023-11-14 and 2024-08-08 are all parking pages, so **no historical content has been recovered yet**. |
+| ~~OLD~~ | https://grove.work | **Not a Grove source (corrected 2026-10-05).** Earlier research wrongly named it The Grove's former site; the old site is thegrove.work (`G`). grove.work is a GoDaddy parking page (Wayback captures are parking pages too), and no facts were taken from it. Don't cite it. |
 | FZ | https://fundrazr.com/campaigns/32Vd99 | The "Local Color x The Grove" mural crowdfunding page, fetched with curl and the text extracted. Created 2025-02-06, started 2025-06-17. Written by a partner; historical. |
 
 ## Facts
@@ -53,7 +53,16 @@ This file is the citation log behind `PRODUCT.md`. All sources were retrieved 20
 | Ways to help: donate, sponsor, share, volunteer | G `/ericcordova` | current | Scholarship CTAs |
 | Scholarship established at the Celebration of Life, 2024-05-12 | G `/events` | historical | Scholarship story |
 | Eric Cordova bio and quote "Success is not about the wins or losses. It's about shaping lives." | G `/ericcordova` | current | Scholarship page |
-| Showtime classes: "Fundamentalist and Select" | G `/showtimebasketball` | uncertain (conflicts with SBA) | Programs pathway, once resolved |
+| Longer Eric Cordova bio ("From early morning practices to late-night phone calls...", "discipline, teamwork, and heart", "a mentor, a motivator, and a beacon of hope") and full name "Coach Eric Cordova Memorial Basketball Scholarship", subtitle "Honoring a Legacy of Leadership, Passion, and Purpose" | G `/ericcordova` | current | Scholarship story (rewrite the source's "---" dashes) |
+| Scholarship plaque text "Coach Eric · Forever on the Court", est. 2024 | G (plaque photo) | current | Scholarship page, caption or motif |
+| Home booking strip: "Interested in Booking Our Space? Book Now" (to GoodRun) | G `/` | current | Supports a booking prompt near the top of the home page |
+| Contact form requires phone; donor form requires phone | G `/contact`, `/donate` | current | Not carried over (phone is optional in the build) |
+| High-resolution logo files: white mark 1242×1423 PNG, black mark 1228×2162 transparent PNG (URLs in `thegrove-work-brand-review.md`) | G (Wix media) | current | Header and footer logo; replaces the 186×200 repo copy once the client approves |
+| Broken links on the old site: menu Instagram icon goes to `instagram.com/wix`; home "Our Events" goes to `/` | G | current defects | Redirect and QA notes only |
+| Showtime classes: "2 classes: Fundamentalist and Select" (page body) | G `/showtimebasketball` | uncertain (conflicts with SBA and with the same page's meta description) | Programs pathway, once resolved |
+| Showtime classes: "3 classes: Fundamentalist Class, Select class, and our Elite class" | G `/showtimebasketball` meta description (found on the 2026-10-05 re-review) | uncertain; the same page's body says 2 | Evidence for Q6 only |
+| Academy curriculum: "teaching players game skills in game situations"; takes players "through their development into college-ready talent" | G `/showtimebasketball` | current (Grove's description of Showtime) | Programs copy, if Showtime agrees |
+| L.E.A.D. definitions (Leadership "our foundation for success", Effort "doing things to your fullest ability", Attitude "positive and constructive", Discipline "pursue your goals ... regardless of feelings or perceptions") | G `/showtimebasketball` | current | Programs values blurbs |
 | Showtime "provides 3 classes: Fundamentalist Class, Select class, and our Elite class" | FZ (2025) | historical. Elite is absent from current G and SBA | Supports the repo's draft pathway as of 2025; confirm whether it is current |
 | The Grove is a "grassroots athletic training community"; "Many Grove players come from underserved communities" | FZ (2025) | historical (partner-written) | Community copy, with client approval |
 | Mural: Local Color campaign, $25,100 goal, permanent mural "inside The Grove gym" | FZ (2025) | historical; outcome unknown | Omit until confirmed (`REPO` rule) |
