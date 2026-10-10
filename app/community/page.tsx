@@ -1,154 +1,192 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
-import { CTASection } from "@/components/CTASection";
+import { ArrowRight } from "@/components/Icon";
 import { PartnerLogoGrid } from "@/components/PartnerLogoGrid";
 import { Photo } from "@/components/Photo";
-import { SectionHeading } from "@/components/SectionHeading";
-import { images, mission, philosophy } from "@/lib/content";
+import { Accent, SectionHeading } from "@/components/SectionHeading";
+import {
+  communityWork,
+  flyerDate,
+  images,
+  mission,
+  pastEvents,
+  philosophy,
+} from "@/lib/content";
+import { pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Community",
+export const metadata: Metadata = pageMetadata({
+  title: "Community Work, Clinics, and Shoe Drive",
   description:
-    "Mission, outreach, scholarships, and the collective spirit of The Grove in San Jose.",
-  alternates: { canonical: "/community" },
-};
+    "The Grove Community Collective is a San Jose nonprofit: scholarships, free camps and clinics, an annual shoe drive, and community events through basketball.",
+  path: "/community",
+});
+
+const getInvolved = [
+  {
+    title: "Donate or sponsor",
+    body: "Fund training, mentorship, and gear through the Eric Cordova Scholarship.",
+    href: "/scholarship#support",
+    label: "Support the Scholarship",
+  },
+  {
+    title: "Partner with us",
+    body: "Businesses and organizations: tell us how you would like to work together.",
+    href: "/contact?topic=partnership",
+    label: "Partner inquiry",
+  },
+  {
+    title: "Volunteer",
+    body: "Give your time or expertise to the players in our program.",
+    href: "/contact?topic=donate",
+    label: "Offer your time",
+  },
+];
 
 export default function CommunityPage() {
   return (
     <>
-      <section className="bg-cream py-16 md:py-24">
-        <div className="container-grove grid items-end gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <p className="eyebrow text-forest">Community</p>
-            <h1 className="mt-4 font-display text-5xl tracking-[0.04em] sm:text-6xl md:text-8xl">
-              Built by
-              <br />
-              the community.
+      <section className="bg-paper">
+        <div className="grid lg:grid-cols-2">
+          <div className="gutter-start flex flex-col justify-end pr-5 pt-14 pb-12 sm:pr-10 md:pt-20 lg:pb-16 lg:pr-14">
+            <h1 className="font-display text-[2.75rem] leading-[0.95] sm:text-6xl md:text-7xl lg:text-8xl">
+              Built by <Accent>the community.</Accent>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-black/70">{mission.short}</p>
-          </div>
-          <p className="max-w-sm text-sm text-gray lg:justify-self-end">
-            Founded {site.founded} · {site.location}
-          </p>
-        </div>
-      </section>
-
-      <section className="bg-forest-dark text-cream">
-        <div className="container-wide grid lg:grid-cols-2">
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 md:py-24 lg:px-14">
-            <SectionHeading eyebrow="Mission" title="Support we needed." tone="dark">
-              <p>{mission.support}</p>
-              <p className="mt-4">{mission.commitment}</p>
-            </SectionHeading>
+            <span aria-hidden="true" className="brand-rule mt-7" />
+            <p className="mt-6 max-w-xl text-lg text-black/70">{mission.statement}</p>
+            <p className="label mt-10 text-gray">
+              Serving the community since {site.founded}
+            </p>
           </div>
           <Photo
             src={images.community.src}
             alt={images.community.alt}
-            aspect="aspect-[4/3] lg:aspect-auto lg:min-h-full"
+            priority
+            aspect="aspect-[4/3] h-full lg:aspect-auto lg:min-h-[38rem]"
             className="h-full"
           />
         </div>
       </section>
 
-      <section className="bg-cream py-20 md:py-28">
-        <div className="container-narrow">
-          <SectionHeading eyebrow="Philosophy" title="Grow together.">
-            <blockquote className="border-l-2 border-wood pl-6 text-xl leading-relaxed text-black/75 md:text-2xl">
-              “{philosophy.quote}”
-            </blockquote>
-            <p className="mt-6 text-gray">
-              The metaphor is about people: mentorship, shared foundations, and
-              belonging. The visual identity stays basketball-first.
-            </p>
-          </SectionHeading>
-        </div>
-      </section>
-
-      <section className="bg-black py-20 text-cream md:py-28">
+      <section className="bg-black py-20 text-paper md:py-28">
         <div className="container-grove">
-          <SectionHeading
-            eyebrow="How we show up"
-            title="People helping people grow."
-            tone="dark"
-          >
-            <p>
-              This is not a list of programs for the sake of a nonprofit page. It
-              is how The Grove tries to be present for players and families.
-            </p>
+          <SectionHeading title="How we show up." tone="dark">
+            <p>{mission.support}</p>
           </SectionHeading>
 
-          <div className="mt-14 grid gap-0 md:grid-cols-2">
-            {[
-              {
-                title: "Scholarships",
-                body: "Support that helps offset training and camp/clinic costs, including the Eric Cordova Scholarship.",
-                href: "/scholarship",
-              },
-              {
-                title: "Shoe donations",
-                body: "Basketball shoes donated to players in need, so gear is not the reason someone sits out.",
-                href: null,
-              },
-              {
-                title: "Outreach",
-                body: "Events and initiatives that bring positivity and growth through basketball into the local community.",
-                href: null,
-              },
-              {
-                title: "Mentorship",
-                body: "Older trees and seedlings on the same soil: people using their roots to strengthen someone else's foundation.",
-                href: null,
-              },
-            ].map((item, index) => (
-              <article
+          <ul className="mt-14 border-t border-paper/20">
+            {communityWork.map((item) => (
+              <li
                 key={item.title}
-                className={[
-                  "border border-cream/15 p-8 md:p-10",
-                  index % 2 === 0 ? "md:border-r-0" : "",
-                  index < 2 ? "border-b-0 md:border-b" : "",
-                ].join(" ")}
+                className="grid gap-x-10 gap-y-2 border-b border-paper/20 py-8 md:grid-cols-[minmax(0,1fr)_minmax(0,1.3fr)]"
               >
-                <h2 className="font-display text-3xl tracking-[0.05em] md:text-4xl">
-                  {item.title}
-                </h2>
-                <p className="mt-4 text-cream/65">{item.body}</p>
+                <h3 className="font-display text-3xl leading-[1.02] md:text-4xl">{item.title}</h3>
+                <div>
+                <p className="max-w-xl text-paper/75">{item.body}</p>
                 {item.href ? (
                   <Link
                     href={item.href}
-                    className="mt-6 inline-flex font-display text-xs tracking-[0.16em] text-wood-light underline underline-offset-8"
+                    className="mt-5 inline-flex min-h-11 items-center gap-2 font-display text-sm font-medium tracking-[0.1em] text-paper uppercase underline decoration-paper/50 decoration-1 underline-offset-[0.5em] transition-colors hover:decoration-paper"
                   >
-                    Learn more →
+                    About the scholarship
+                    <ArrowRight />
                   </Link>
                 ) : null}
-              </article>
+                </div>
+              </li>
             ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="bg-paper py-20 md:py-28">
+        <div className="container-grove grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <div className="lg:sticky lg:top-28 lg:self-start">
+            <SectionHeading title="On the court together." size="md">
+              <p>
+                A few of the moments our community has shared at The Grove. New
+                events are announced on Instagram.
+              </p>
+            </SectionHeading>
+            <ButtonLink
+              href={site.instagramUrl}
+              external
+              variant="grove"
+              size="lg"
+              className="mt-8"
+            >
+              Follow {site.instagramHandle}
+            </ButtonLink>
           </div>
 
-          <p className="mt-10 max-w-2xl text-sm text-cream/45">
-            The Hoop Ministry and mural project details are pending verification
-            and are not presented as active programs here. See CONTENT_NEEDED.md.
-          </p>
+          <ol className="border-t-[3px] border-black">
+            {pastEvents.map((event) => (
+              <li
+                key={event.name}
+                className="grid gap-x-8 gap-y-2 border-b border-black/15 py-7 sm:grid-cols-[11rem_1fr]"
+              >
+                <time
+                  dateTime={event.on}
+                  className={[
+                    "self-start font-display text-3xl leading-none md:text-4xl",
+                    event.showtime ? "bg-amber px-2 pt-1.5 pb-1 text-black sm:justify-self-start" : "text-forest",
+                  ].join(" ")}
+                >
+                  {flyerDate(event.on)}
+                </time>
+                <div>
+                  <h3 className="font-display text-2xl leading-[1.05] md:text-3xl">
+                    {event.name}
+                  </h3>
+                  <p className="mt-2 text-black/70">{event.detail}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <ButtonLink href="/scholarship" variant="cream" size="lg">
-              Eric Cordova Scholarship
-            </ButtonLink>
-            <ButtonLink href="/contact" variant="secondary" size="lg">
-              Get involved
-            </ButtonLink>
-          </div>
+      <section className="bg-paper-deep py-20 md:py-28">
+        <div className="container-grove grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+          <SectionHeading
+            title={
+              <>
+                Grow <span className="block">together.</span>
+              </>
+            }
+          />
+          <figure>
+            <blockquote className="text-xl leading-relaxed text-black/80 md:text-2xl md:leading-relaxed">
+              “{philosophy.quote}”
+            </blockquote>
+            <figcaption className="label mt-8 text-gray">
+              Our philosophy · {philosophy.source}
+            </figcaption>
+          </figure>
         </div>
       </section>
 
       <PartnerLogoGrid />
 
-      <CTASection
-        tone="forest"
-        title="Come grow with us."
-        body="Train, rent the space, support the scholarship, or just show up. The collective is built one person at a time."
-      />
+      <section className="bg-forest py-20 text-paper md:py-28">
+        <div className="container-grove">
+          <SectionHeading title="Have our players' backs." tone="dark">
+            <p>{mission.donors}</p>
+          </SectionHeading>
+          <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+            {getInvolved.map((item) => (
+              <div key={item.title} className="border-t border-paper/25 pt-6">
+                <h3 className="font-display text-2xl md:text-3xl">{item.title}</h3>
+                <p className="mt-3 text-paper/75">{item.body}</p>
+                <ButtonLink href={item.href} variant="light" size="md" className="mt-6">
+                  {item.label}
+                </ButtonLink>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </>
   );
 }

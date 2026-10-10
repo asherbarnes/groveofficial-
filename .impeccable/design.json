@@ -1,0 +1,156 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-06T23:30:00Z",
+  "title": "Design System: The Grove Community Collective",
+  "extensions": {
+    "brandArchitecture": {
+      "status": "Working decision as of 2026-10-06, pending final client confirmation (PRODUCT.md question 26). Logo PNGs in public/brand/ pending client approval; vector originals still to come.",
+      "heritage": "thegrove.work used near-black, off-white and amber with no green (research/thegrove-work-brand-review.md).",
+      "grove": { "role": "Parent facility and community identity", "colors": ["black", "paper", "forest"], "supporting": ["paper-deep", "forest-deep"] },
+      "showtime": { "role": "Basketball training program operating at The Grove", "colors": ["amber"], "contexts": ["/programs hero field", "Join Showtime buttons (showtime variant)", ".brand-rule-showtime", "amber 'Showtime standards.' accent", "amber date chip on Showtime-run past events (showtime: true)"] },
+      "shared": ["black", "paper"],
+      "constraints": ["Amber must not become the dominant Grove accent unless later brand evidence supports it; the site must not feel like a Showtime Basketball website.", "On dark Grove surfaces the accent and rules are off-white; forest would disappear on near-black, and the mint forest-light was removed as off-palette."]
+    },
+    "colorMeta": {
+      "black": { "role": "neutral", "displayName": "Court Black", "canonical": "#151515", "tonalRamp": ["#0b0b0b", "#151515", "#2a2a2a", "#454545", "#666666", "#8c8c8c", "#b8b8b8", "#e6e6e6"] },
+      "paper": { "role": "neutral", "displayName": "Paper", "canonical": "#f6f5f0", "tonalRamp": ["#2b2a26", "#4d4b45", "#76736a", "#a19e93", "#c7c4b9", "#dfddd4", "#ebe9e1", "#f6f5f0"] },
+      "paper-deep": { "role": "neutral", "displayName": "Paper Deep", "canonical": "#ebe9e1", "tonalRamp": ["#2a2924", "#4a4842", "#726f66", "#9c998e", "#c3c0b5", "#d9d7ce", "#ebe9e1", "#f6f5f0"] },
+      "white": { "role": "neutral", "displayName": "White", "canonical": "#ffffff", "tonalRamp": ["#262626", "#474747", "#6b6b6b", "#919191", "#b5b5b5", "#d6d6d6", "#efefef", "#ffffff"] },
+      "gray": { "role": "neutral", "displayName": "Warm Gray", "canonical": "#5c5a55", "tonalRamp": ["#1f1e1c", "#34332f", "#5c5a55", "#7a7872", "#9a9891", "#bab8b1", "#d8d6cf", "#f0efea"] },
+      "forest": { "role": "primary", "displayName": "Grove Forest", "canonical": "#16352a", "tonalRamp": ["#0a1a14", "#0f271f", "#16352a", "#2a5544", "#477a65", "#6f9e8a", "#a3c4b6", "#dce9e3"] },
+      "forest-deep": { "role": "primary", "displayName": "Deep Forest", "canonical": "#0f271f", "tonalRamp": ["#06120d", "#0f271f", "#16352a", "#2a5544", "#477a65", "#6f9e8a", "#a3c4b6", "#dce9e3"] },
+      "amber": { "role": "secondary", "displayName": "Showtime Amber", "canonical": "#ffb800", "tonalRamp": ["#3d2a00", "#664700", "#946800", "#c28a00", "#e5a400", "#ffb800", "#ffd466", "#fff0c7"] },
+      "amber-deep": { "role": "secondary", "displayName": "Pressed Amber", "canonical": "#e5a400", "tonalRamp": ["#3d2a00", "#664700", "#946800", "#c28a00", "#e5a400", "#ffb800", "#ffd466", "#fff0c7"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero names only (THE GROVE., SHOWTIME). Oswald 600 caps, 0.86 leading." },
+      "headline": { "displayName": "Headline", "purpose": "Page h1s and SectionHeading h2s; 0.92 to 0.98 leading on large stacked headings." },
+      "title": { "displayName": "Title", "purpose": "Wrapping list-row titles, event names, panel headings; leading 1.0 or above." },
+      "body": { "displayName": "Body", "purpose": "Source Sans 3 running copy, 17px / 1.6." },
+      "label": { "displayName": "Label", "purpose": "Small tracked caps (.label): footer column heads, form labels, hero meta." },
+      "button": { "displayName": "Button", "purpose": "ButtonLink text, Oswald 500 caps at 0.1em." }
+    },
+    "shadows": [
+      { "name": "focus-ring", "value": "outline: 2px solid var(--paper); outline-offset: 2px; box-shadow: 0 0 0 2px var(--black)", "purpose": "Global two-tone :focus-visible ring; the only shadow in the system." }
+    ],
+    "motion": [
+      { "name": "rise-in", "value": "0.9s cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Hero entrance: 18px rise with fade. Disabled under prefers-reduced-motion." },
+      { "name": "fade-in", "value": "1.1s ease", "purpose": "Hero photo entrance." },
+      { "name": "line-draw", "value": "0.8s cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Hero brand rule draws in from the left." },
+      { "name": "stagger", "value": "0.12s / 0.24s / 0.36s", "purpose": "Hero entrance delays." },
+      { "name": "hover-color", "value": "200ms", "purpose": "Button and link colour transitions; the only non-hero motion." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px", "purpose": "Split heroes go two-column; desktop nav replaces the mobile menu." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Grove Button",
+      "kind": "button",
+      "refersTo": "button-grove",
+      "description": "The Grove's own primary action on light surfaces.",
+      "html": "<a class=\"ds-btn ds-btn-grove\" href=\"#\">Book the Space</a>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 20px; border: 1px solid; border-radius: 2px; font-family: var(--font-display, Oswald, 'Arial Narrow', sans-serif); font-weight: 500; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; white-space: nowrap; transition: background-color 200ms, border-color 200ms, color 200ms; } .ds-btn:focus-visible { outline: 2px solid #f6f5f0; outline-offset: 2px; box-shadow: 0 0 0 2px #151515; } .ds-btn-grove { background: #16352a; color: #f6f5f0; border-color: #16352a; } .ds-btn-grove:hover { background: #0f271f; border-color: #0f271f; }"
+    },
+    {
+      "name": "Showtime Button",
+      "kind": "button",
+      "refersTo": "button-showtime",
+      "description": "Join Showtime and other Showtime-only actions. Amber is reserved for Showtime.",
+      "html": "<a class=\"ds-btn-showtime\" href=\"#\">Join Showtime</a>",
+      "css": ".ds-btn-showtime { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border: 1px solid #ffb800; border-radius: 2px; background: #ffb800; color: #151515; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 500; font-size: 0.8125rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background-color 200ms, border-color 200ms; } .ds-btn-showtime:hover { background: #e5a400; border-color: #e5a400; } .ds-btn-showtime:focus-visible { outline: 2px solid #f6f5f0; outline-offset: 2px; box-shadow: 0 0 0 2px #151515; }"
+    },
+    {
+      "name": "Light Button (on dark)",
+      "kind": "button",
+      "refersTo": "button-light",
+      "description": "Main action on near-black and forest surfaces.",
+      "html": "<div style=\"background:#151515;padding:24px\"><a class=\"ds-btn-light\" href=\"#\">Book the Space</a></div>",
+      "css": ".ds-btn-light { display: inline-flex; align-items: center; min-height: 48px; padding: 0 24px; border: 1px solid #f6f5f0; border-radius: 2px; background: #f6f5f0; color: #151515; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background-color 200ms, border-color 200ms; } .ds-btn-light:hover { background: #ffffff; border-color: #ffffff; } .ds-btn-light:focus-visible { outline: 2px solid #f6f5f0; outline-offset: 2px; box-shadow: 0 0 0 2px #151515; }"
+    },
+    {
+      "name": "Outline Light Button (external)",
+      "kind": "button",
+      "refersTo": "button-outline-light",
+      "description": "Secondary action on dark surfaces; external links carry the line arrow and sr-only new-tab text.",
+      "html": "<div style=\"background:#151515;padding:24px\"><a class=\"ds-btn-ol\" href=\"#\" target=\"_blank\" rel=\"noopener noreferrer\">@the.grove.cc<svg width=\"1em\" height=\"1em\" viewBox=\"0 0 20 20\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.75\" stroke-linecap=\"square\" aria-hidden=\"true\"><path d=\"M6 14l8-8M7 5.5h7.5V13\"/></svg><span class=\"ds-sr\"> (opens in a new tab)</span></a></div>",
+      "css": ".ds-btn-ol { display: inline-flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 24px; border: 1px solid rgba(246,245,240,0.55); border-radius: 2px; background: transparent; color: #f6f5f0; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background-color 200ms, border-color 200ms; } .ds-btn-ol:hover { border-color: #f6f5f0; background: rgba(246,245,240,0.1); } .ds-btn-ol:focus-visible { outline: 2px solid #f6f5f0; outline-offset: 2px; box-shadow: 0 0 0 2px #151515; } .ds-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }"
+    },
+    {
+      "name": "Contact Field",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Paper field on the forest contact panel with a label-style caption.",
+      "html": "<div style=\"background:#16352a;padding:28px;color:#f6f5f0\"><label class=\"ds-label\" for=\"ds-name\">Name</label><input id=\"ds-name\" class=\"ds-input\" type=\"text\"></div>",
+      "css": ".ds-label { display: block; font-family: Oswald, 'Arial Narrow', sans-serif; font-size: 0.8125rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.3; } .ds-input { margin-top: 8px; width: 100%; padding: 12px 16px; border: 1px solid #f6f5f0; border-radius: 2px; background: #f6f5f0; color: #151515; font: inherit; font-family: 'Source Sans 3', system-ui, sans-serif; } .ds-input:focus-visible { outline: 2px solid #f6f5f0; outline-offset: 2px; box-shadow: 0 0 0 2px #151515; }"
+    },
+    {
+      "name": "Header",
+      "kind": "nav",
+      "refersTo": "header",
+      "description": "Sticky near-black header: white mark plus typeset THE GROVE, Oswald nav, amber Join Showtime.",
+      "html": "<header class=\"ds-header\"><a class=\"ds-wordmark\" href=\"#\">The Grove</a><nav class=\"ds-nav\"><a href=\"#\">Community</a><a href=\"#\" aria-current=\"page\">Programs</a><a href=\"#\">Scholarship</a><a class=\"ds-nav-cta\" href=\"#\">Join Showtime</a></nav></header>",
+      "css": ".ds-header { display: flex; align-items: center; justify-content: space-between; height: 72px; padding: 0 32px; background: #151515; color: #f6f5f0; border-bottom: 1px solid rgba(246,245,240,0.1); } .ds-wordmark { font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 600; font-size: 1.5rem; letter-spacing: 0.06em; text-transform: uppercase; color: #f6f5f0; text-decoration: none; } .ds-nav { display: flex; align-items: center; gap: 24px; } .ds-nav a { font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 500; font-size: 0.875rem; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(246,245,240,0.75); text-decoration: none; padding: 12px 0; transition: color 200ms; } .ds-nav a:hover, .ds-nav a[aria-current=page] { color: #f6f5f0; } .ds-nav a[aria-current=page] { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 0.6em; } .ds-nav a.ds-nav-cta { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; background: #ffb800; color: #151515; border-radius: 2px; font-size: 0.8125rem; letter-spacing: 0.1em; } .ds-nav a.ds-nav-cta:hover { background: #e5a400; } .ds-nav a:focus-visible { outline: 2px solid #f6f5f0; outline-offset: 2px; box-shadow: 0 0 0 2px #151515; }"
+    },
+    {
+      "name": "Section Heading",
+      "kind": "custom",
+      "refersTo": "headline",
+      "description": "Stacked display caps, the 48px brand rule in the speaking brand's colour, then body. One Accent line at most per page. No kicker.",
+      "html": "<div class=\"ds-sh\"><h2 class=\"ds-sh-title\">More than <span class=\"ds-sh-accent\">a gym.</span></h2><span class=\"ds-rule\" aria-hidden=\"true\"></span><p class=\"ds-sh-body\">A San Jose basketball nonprofit with its own training facility.</p></div>",
+      "css": ".ds-sh { max-width: 48rem; padding: 32px; background: #f6f5f0; color: #151515; } .ds-sh-title { margin: 0; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 600; font-size: 4.5rem; line-height: 0.95; letter-spacing: 0.01em; text-transform: uppercase; text-wrap: balance; } .ds-sh-accent { display: block; color: #16352a; } .ds-rule { display: block; width: 48px; height: 3px; margin-top: 24px; background: #16352a; } .ds-sh-body { margin-top: 24px; max-width: 42rem; font-family: 'Source Sans 3', system-ui, sans-serif; font-size: 1.125rem; line-height: 1.6; color: rgba(21,21,21,0.7); }"
+    },
+    {
+      "name": "Flyer Date Row",
+      "kind": "custom",
+      "refersTo": "date-chip-showtime",
+      "description": "Past-event row: flyer date (M.D.YYYY) in display caps, forest for Grove events, black-on-amber chip for Showtime-run events. Historical only.",
+      "html": "<ol class=\"ds-events\"><li><time class=\"ds-date\">2.24.2024</time><div><h3 class=\"ds-ev\">Shoe Drive</h3></div></li><li><time class=\"ds-date ds-date-st\">6.15.2024</time><div><h3 class=\"ds-ev\">Free Clinic</h3></div></li></ol>",
+      "css": ".ds-events { list-style: none; margin: 0; padding: 0; border-top: 3px solid #151515; background: #f6f5f0; } .ds-events li { display: grid; grid-template-columns: 11rem 1fr; gap: 8px 32px; padding: 28px 0; border-bottom: 1px solid rgba(21,21,21,0.15); } .ds-date { align-self: start; justify-self: start; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 600; font-size: 2.25rem; line-height: 1; text-transform: uppercase; color: #16352a; } .ds-date-st { background: #ffb800; color: #151515; padding: 6px 8px 4px; } .ds-ev { margin: 0; font-family: Oswald, 'Arial Narrow', sans-serif; font-weight: 600; font-size: 1.875rem; line-height: 1.05; text-transform: uppercase; color: #151515; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Grove's House, Showtime's Court",
+    "overview": "The site is The Grove's own house with Showtime Basketball Academy as the program that trains inside it. The system makes that brand architecture visible in colour: Grove surfaces are near-black, off-white and forest green, and amber appears only where Showtime is speaking. It evolves the old thegrove.work look (monochrome, heavy all-caps headlines, the geometric mark) rather than rebranding it.\n\nPages are editorial and asymmetric. Stacked, condensed, all-caps block headlines sit over a short brand rule, and full-bleed split heroes put text against squared real photography. Lists are ruled rows rather than card grids. Section bands alternate paper, paper-deep, forest and black. The surfaces are flat, the corners are square, and motion is limited to the hero entrance and hover colour shifts.",
+    "keyCharacteristics": [
+      "Two related brands told apart by colour: forest/off-white for The Grove, amber for Showtime.",
+      "Oswald 600 condensed caps stacked with tight but non-colliding leading.",
+      "A 48px brand rule under every section heading, in the speaking brand's colour.",
+      "Squared real photography that bleeds to the viewport edge in split heroes.",
+      "One button family with a 2px radius.",
+      "Flat tonal banding with no shadows."
+    ],
+    "rules": [
+      { "name": "The Speaking Brand Rule", "body": "Before using amber, ask \"is Showtime speaking here?\" If the answer is no, use forest on light surfaces and off-white on dark ones.", "section": "colors" },
+      { "name": "The Off-White On Dark Rule", "body": "On near-black and forest, Grove accents, rules and `Accent` lines are paper, never forest and never mint.", "section": "colors" },
+      { "name": "The Muted Floor Rule", "body": "Muted text on dark surfaces is paper at 65% opacity or more. Body copy on dark surfaces sits at 70 to 75%.", "section": "colors" },
+      { "name": "The Leading Floor Rule", "body": "Only large single-line or deliberately stacked display headings go below 1.0 (0.86 to 0.98). Anything that wraps (subheads, list titles, quotes) stays at 1.0 or above so condensed caps never touch. `.font-display` sits in `@layer components`, so `leading-*` and `tracking-*` utilities do take effect.", "section": "typography" },
+      { "name": "The One Accent Rule", "body": "`Accent` produces at most one two-colour headline per page. Its second line is forest on paper, paper on dark Grove surfaces, and amber on black only for Showtime.", "section": "typography" },
+      { "name": "The Banding Rule", "body": "Section bands alternate paper, paper-deep, forest and black. A closing band never runs black into the black footer: the closing CTA is forest or paper.", "section": "layout" },
+      { "name": "The Flat Band Rule", "body": "Separate content with colour bands and rules, never with shadows or floating cards.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use amber only where Showtime is speaking: the /programs hero, Join Showtime buttons, the Showtime rule, the \"Showtime standards.\" accent, and Showtime event date chips.",
+      "Do make Grove accents and rules off-white (paper) on near-black and forest surfaces.",
+      "Do set large display headings at 0.86 to 0.98 leading and keep anything that wraps at 1.0 or above.",
+      "Do follow every section heading with the 48px brand rule, then the body copy.",
+      "Do use `ButtonLink` at 44px or 48px with the 2px radius, and pass `external` for off-site links.",
+      "Do use squared real photography that bleeds to the viewport edge in split heroes, using `.gutter-start` / `.gutter-end` with minmax(0, …) tracks.",
+      "Do alternate paper, paper-deep, forest and black bands, and end pages on forest or paper before the black footer.",
+      "Do keep WCAG 2.2 AA: the two-tone focus ring, muted text on dark at paper/65 or more, and gray (#5c5a55) as the lightest small text on paper."
+    ],
+    "donts": [
+      "Don't let amber become the dominant Grove accent or make the site feel like a Showtime Basketball website.",
+      "Don't use forest-on-black or the removed mint \"forest-light\".",
+      "Don't put kicker or eyebrow labels above headings.",
+      "Don't use more than one `Accent` two-colour headline per page.",
+      "Don't build card grids with shadows. Use ruled, asymmetric lists.",
+      "Don't use Unicode arrows or glyph icons. Use the line icons in `components/Icon.tsx`.",
+      "Don't redraw or substitute the Grove mark or lockup, or use illustrations or placeholder SVGs in place of photos.",
+      "Don't add `outline-none` or a black closing band directly above the black footer."
+    ]
+  }
+}

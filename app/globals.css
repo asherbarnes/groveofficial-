@@ -1,116 +1,141 @@
 @import "tailwindcss";
 
+/*
+ * Brand architecture (see DESIGN.md):
+ * The Grove = near-black, off-white, forest green.
+ * Showtime Basketball Academy = amber, used only where Showtime is speaking.
+ * Black and off-white are shared neutrals that connect the two.
+ */
 :root {
-  --forest: #16352a;
-  --forest-dark: #0b1f18;
-  --forest-mid: #1f4a39;
-  --forest-light: #4f8a6e;
-  --forest-lighter: #5f9a7c;
-  --cream: #f2ebe0;
-  --cream-deep: #e6dccb;
-  --black: #0b0b0b;
-  --wood: #b8925a;
-  --wood-light: #d4b483;
-  --gray: #6e6a63;
-  --gray-light: #a39e95;
+  /* Shared neutrals */
+  --black: #151515;
+  --paper: #f6f5f0;
+  --paper-deep: #ebe9e1;
   --white: #ffffff;
+  /* 6.3:1 on paper, 5.7:1 on paper-deep (WCAG AA for small text) */
+  --gray: #5c5a55;
+
+  /* The Grove */
+  --forest: #16352a;
+  --forest-deep: #0f271f;
+
+  /* Showtime Basketball Academy */
+  --amber: #ffb800;
+  --amber-deep: #e5a400;
+
   --rule: color-mix(in srgb, var(--black) 14%, transparent);
 
-  --background: var(--cream);
-  --foreground: var(--black);
-  --font-display: "Oswald", Impact, Haettenschweiler, sans-serif;
+  --font-display: "Oswald", "Arial Narrow", sans-serif;
   --font-body: "Source Sans 3", system-ui, sans-serif;
 }
 
 @theme inline {
-  --color-forest: var(--forest);
-  --color-forest-dark: var(--forest-dark);
-  --color-forest-mid: var(--forest-mid);
-  --color-forest-light: var(--forest-light);
-  --color-forest-lighter: var(--forest-lighter);
-  --color-cream: var(--cream);
-  --color-cream-deep: var(--cream-deep);
   --color-black: var(--black);
-  --color-wood: var(--wood);
-  --color-wood-light: var(--wood-light);
-  --color-gray: var(--gray);
-  --color-gray-light: var(--gray-light);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
   --color-white: var(--white);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-gray: var(--gray);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-amber: var(--amber);
+  --color-amber-deep: var(--amber-deep);
   --font-display: var(--font-display);
   --font-sans: var(--font-body);
 }
 
-* {
-  box-sizing: border-box;
+/* Element defaults live in the base layer so Tailwind utilities (h-10,
+   underline, etc.) can override them. Unlayered rules here would always win. */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scrollbar-color: color-mix(in srgb, var(--black) 45%, transparent) var(--paper);
+  }
+
+  body {
+    background: var(--paper);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background: var(--forest);
+    color: var(--paper);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
+/*
+ * Layered so Tailwind utilities (leading-*, tracking-*, font-*) override the
+ * defaults. Display type is condensed caps; large sizes set their own tighter
+ * leading, and anything that wraps keeps at least 1.0 so lines never touch.
+ */
+@layer components {
+  .font-display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    line-height: 1.02;
+    text-wrap: balance;
+  }
+
+  /* Small display caps for labels, footer headings, and form labels */
+  .label {
+    font-family: var(--font-display);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.3;
+  }
+
+  /* The short rule from thegrove.work, in the speaking brand's color */
+  .brand-rule {
+    display: block;
+    width: 3rem;
+    height: 3px;
+    background: var(--forest);
+  }
+  /* On near-black and forest the Grove's rule is off-white: forest would vanish */
+  .brand-rule-light {
+    background: var(--paper);
+  }
+  .brand-rule-showtime {
+    background: var(--amber);
+  }
+
+  .container-grove {
+    width: min(1180px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  .container-narrow {
+    width: min(760px, calc(100% - 2.5rem));
+    margin-inline: auto;
+  }
+
+  /* Left padding that lines a full-bleed split's text up with .container-grove */
+  .gutter-start {
+    padding-left: max(1.25rem, calc((100vw - 1180px) / 2));
+  }
+  .gutter-end {
+    padding-right: max(1.25rem, calc((100vw - 1180px) / 2));
+  }
 }
 
-body {
-  background: var(--cream);
-  color: var(--black);
-  font-family: var(--font-body), system-ui, sans-serif;
-  font-size: 1.0625rem;
-  line-height: 1.6;
-  text-rendering: optimizeLegibility;
-}
-
-::selection {
-  background: var(--forest);
-  color: var(--cream);
-}
-
-a {
-  text-decoration: none;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.font-display {
-  font-family: var(--font-display), Impact, Haettenschweiler, sans-serif;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-  line-height: 0.92;
-}
-
-.eyebrow {
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gray);
-}
-
-.rule {
-  height: 1px;
-  background: var(--rule);
-  border: 0;
-}
-
-.container-grove {
-  width: min(1180px, calc(100% - 2.5rem));
-  margin-inline: auto;
-}
-
-.container-narrow {
-  width: min(760px, calc(100% - 2.5rem));
-  margin-inline: auto;
-}
-
-.container-wide {
-  width: min(1400px, calc(100% - 1.5rem));
-  margin-inline: auto;
-}
-
-/* Intentional motion: presence, not decoration */
+/* Intentional motion: the hero entrance only */
 @keyframes rise-in {
   from {
     opacity: 0;
@@ -177,10 +202,12 @@ img {
   }
 }
 
-/* Focus */
+/* Focus: two-tone ring (inner black, outer off-white) so one band always has
+   3:1+ contrast on paper, white, black, forest, and amber surfaces alike. */
 :focus-visible {
-  outline: 2px solid var(--wood);
-  outline-offset: 3px;
+  outline: 2px solid var(--paper);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 2px var(--black);
 }
 
 /* Draft badge for unverified content blocks */

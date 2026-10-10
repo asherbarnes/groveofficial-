@@ -1,66 +1,72 @@
 import { ButtonLink } from "@/components/ButtonLink";
+import { primaryCta, secondaryCta } from "@/lib/site";
 
-type Props = {
-  eyebrow?: string;
-  title?: string;
-  body?: string;
-  tone?: "forest" | "black" | "cream";
+type Cta = {
+  href: string;
+  label: string;
+  external?: boolean;
+  /** Showtime CTAs render amber; everything else follows the band. */
+  showtime?: boolean;
 };
 
-export function CTASection({
-  eyebrow = "The Grove",
-  title = "Come grow with us.",
-  body = "Train with Showtime. Book the facility. Or reach out and get involved in the collective.",
-  tone = "forest",
-}: Props) {
-  const bg =
-    tone === "forest"
-      ? "bg-forest text-cream"
-      : tone === "black"
-        ? "bg-black text-cream"
-        : "bg-cream text-black";
+type Props = {
+  title?: React.ReactNode;
+  body?: string;
+  /** forest = The Grove's closing band; paper = light close before the black footer */
+  tone?: "forest" | "paper";
+  primary?: Cta;
+  secondary?: Cta | null;
+  note?: string;
+};
 
-  const secondaryVariant = tone === "cream" ? "ghost" : "secondary";
-  const primaryVariant = tone === "cream" ? "primary" : "cream";
+/** Closing band: one main action and at most one secondary. */
+export function CTASection({
+  title = "Come grow with us.",
+  body = "Train with Showtime, book the court for your group or event, or support the players coming up behind you.",
+  tone = "forest",
+  primary = { ...primaryCta, showtime: true },
+  secondary = secondaryCta,
+  note,
+}: Props) {
+  const dark = tone === "forest";
 
   return (
-    <section className={bg}>
-      <div className="container-grove py-20 md:py-28">
-        <div className="max-w-3xl">
-          <p
-            className={[
-              "eyebrow",
-              tone === "cream" ? "text-forest" : "text-wood-light",
-            ].join(" ")}
-          >
-            {eyebrow}
-          </p>
-          <h2 className="mt-4 font-display text-5xl tracking-[0.04em] sm:text-6xl md:text-7xl">
+    <section className={dark ? "bg-forest text-paper" : "border-t border-black/10 bg-paper text-black"}>
+      <div className="container-grove grid gap-10 py-20 md:grid-cols-[1.2fr_0.8fr] md:items-end md:py-28">
+        <div>
+          <h2 className="font-display text-5xl leading-[0.95] sm:text-6xl md:text-7xl">
             {title}
           </h2>
-          <p
-            className={[
-              "mt-5 max-w-xl text-lg",
-              tone === "cream" ? "text-black/65" : "text-cream/70",
-            ].join(" ")}
-          >
+          <p className={["mt-6 max-w-xl text-lg", dark ? "text-paper/75" : "text-black/70"].join(" ")}>
             {body}
           </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href="/programs" variant={primaryVariant} size="lg">
-              Join Showtime
-            </ButtonLink>
-            <ButtonLink href="/book" variant={secondaryVariant} size="lg">
-              Book the Space
-            </ButtonLink>
+        </div>
+        <div className="md:justify-self-end">
+          <div className="flex flex-wrap gap-3">
             <ButtonLink
-              href="/contact"
-              variant={tone === "cream" ? "ghost" : "secondary"}
+              href={primary.href}
+              external={primary.external}
+              variant={primary.showtime ? "showtime" : dark ? "light" : "grove"}
               size="lg"
             >
-              Contact Us
+              {primary.label}
             </ButtonLink>
+            {secondary ? (
+              <ButtonLink
+                href={secondary.href}
+                external={secondary.external}
+                variant={dark ? "outline-light" : "outline"}
+                size="lg"
+              >
+                {secondary.label}
+              </ButtonLink>
+            ) : null}
           </div>
+          {note ? (
+            <p className={["mt-4 max-w-sm text-sm", dark ? "text-paper/70" : "text-gray"].join(" ")}>
+              {note}
+            </p>
+          ) : null}
         </div>
       </div>
     </section>

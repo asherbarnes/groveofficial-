@@ -2,132 +2,147 @@ import type { Metadata } from "next";
 import { ButtonLink } from "@/components/ButtonLink";
 import { Photo } from "@/components/Photo";
 import { SectionHeading } from "@/components/SectionHeading";
-import { facility, images } from "@/lib/content";
-import { site } from "@/lib/site";
+import { facility, flyerDate, images, pastEvents } from "@/lib/content";
+import { pageMetadata } from "@/lib/metadata";
+import { bookingCta, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Book the Space",
+/** Events held at the facility, as historical proof (not a schedule). The memorial stays off the rental pitch. */
+const hostedEvents = pastEvents.filter((event) => !event.memorial);
+
+const steps = [
+  `Open The Grove on ${site.bookingProvider} to see availability and rates.`,
+  "Pick your date and time and reserve it there.",
+  "Planning an event or something custom? Send us a note after checking availability.",
+];
+
+export const metadata: Metadata = pageMetadata({
+  title: "Book the Court and Event Space in San Jose",
   description:
-    "Book The Grove Community Collective facility in San Jose: regulation court, weight room, and event space via GoodRun.",
-  alternates: { canonical: "/book" },
-};
+    "Book The Grove in San Jose on GoodRun: a 10,000 sq ft facility with a FIBA-certified court, weight room, and event space.",
+  path: "/book",
+});
 
 export default function BookPage() {
   return (
     <>
-      <section className="bg-forest text-cream">
-        <div className="container-grove py-16 md:py-24">
-          <p className="eyebrow text-wood-light">Facility rental</p>
-          <h1 className="mt-4 max-w-4xl font-display text-5xl tracking-[0.04em] sm:text-6xl md:text-8xl">
-            Book the space.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg text-cream/75">
-            {facility.summary} Rent court time, host an event, or bring your
-            group into a space built for the game.
-          </p>
-          <div className="mt-9 flex flex-wrap gap-3">
-            <ButtonLink href={site.bookingUrl} external variant="cream" size="lg">
-              Book on {site.bookingProvider}
-            </ButtonLink>
-            <ButtonLink href="/contact" variant="secondary" size="lg">
-              Rental inquiry
-            </ButtonLink>
+      <section className="bg-black text-paper">
+        <div className="grid lg:grid-cols-2">
+          <div className="gutter-start flex flex-col justify-end pr-5 pt-14 pb-12 sm:pr-10 md:pt-20 lg:pb-16 lg:pr-14">
+            <h1 className="font-display text-[3.25rem] leading-[0.92] sm:text-7xl md:text-8xl">
+              Book <span className="block">the space.</span>
+            </h1>
+            <span aria-hidden="true" className="brand-rule brand-rule-light mt-7" />
+            <p className="mt-6 max-w-lg text-lg text-paper/75">
+              {facility.summary} Book court time for training or reserve the
+              space for your event. Availability and rates are on{" "}
+              {site.bookingProvider}.
+            </p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <ButtonLink href={bookingCta.href} external variant="light" size="lg">
+                {bookingCta.label}
+              </ButtonLink>
+              <ButtonLink href="/contact?topic=event" variant="outline-light" size="lg">
+                Ask about an event
+              </ButtonLink>
+            </div>
+            <p className="mt-4 text-sm text-paper/70">
+              Located on {site.street}, San Jose.
+            </p>
           </div>
-        </div>
-      </section>
-
-      <section className="bg-cream py-16 md:py-24">
-        <div className="container-grove grid gap-12 lg:grid-cols-[1fr_1.05fr] lg:gap-16">
-          <div>
-            <SectionHeading eyebrow="The Grove" title="A home for real basketball work.">
-              <p>
-                The Grove Community Collective is a San Jose basketball community.
-                The facility is where that community gathers: for training,
-                gatherings, and events that need a serious court.
-              </p>
-            </SectionHeading>
-
-            <ul className="mt-10 divide-y divide-black/15 border-y border-black/15">
-              {facility.features.map((feature) => (
-                <li key={feature.label} className="py-4">
-                  <p className="font-display text-2xl tracking-[0.05em]">
-                    {feature.label}
-                  </p>
-                  <p className="mt-1 text-black/60">{feature.detail}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           <Photo
             src={images.facility.src}
             alt={images.facility.alt}
-            aspect="aspect-[16/11]"
+            priority
+            aspect="aspect-[4/3] h-full lg:aspect-auto lg:min-h-[38rem]"
+            className="h-full"
           />
         </div>
       </section>
 
-      <section className="bg-black py-20 text-cream md:py-24">
-        <div className="container-grove grid gap-12 md:grid-cols-2">
-          <div>
-            <h2 className="font-display text-4xl tracking-[0.05em] md:text-5xl">
-              Who it&apos;s for
-            </h2>
-            <p className="mt-5 text-cream/70">
-              Teams, trainers, camps, clinics, community groups, and event
-              organizers who need a clean, welcoming basketball space in San Jose.
-              If you are unsure whether your use fits, send a rental inquiry.
+      <section className="bg-paper py-20 md:py-28">
+        <div className="container-grove grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+          <SectionHeading title="Built for the game." size="md">
+            <p>
+              A clean and welcoming space for athletes and event attendees
+              alike, owned and run by The Grove.
             </p>
-          </div>
+          </SectionHeading>
+
+          <dl className="grid border-t-[3px] border-black sm:grid-cols-2">
+            {facility.features.map((feature, index) => (
+              <div
+                key={feature.label}
+                className={[
+                  "border-b border-black/15 py-6",
+                  index % 2 === 1 ? "sm:border-l sm:pl-6" : "sm:pr-6",
+                ].join(" ")}
+              >
+                <dt className="font-display text-2xl md:text-3xl">{feature.label}</dt>
+                <dd className="mt-1.5 text-black/70">{feature.detail}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
+      <section className="bg-paper-deep py-20 md:py-28">
+        <div className="container-grove grid gap-16 lg:grid-cols-2 lg:gap-20">
           <div>
-            <h2 className="font-display text-4xl tracking-[0.05em] md:text-5xl">
+            <h2 className="font-display text-4xl leading-[0.98] md:text-5xl">
               How booking works
             </h2>
-            <ol className="mt-5 space-y-4 text-cream/70">
-              <li className="border-l border-wood pl-4">
-                <span className="font-display text-sm tracking-[0.14em] text-wood-light">
-                  01
-                </span>
-                <p className="mt-1">
-                  Review the facility details and available inventory on{" "}
-                  {site.bookingProvider}.
-                </p>
-              </li>
-              <li className="border-l border-wood pl-4">
-                <span className="font-display text-sm tracking-[0.14em] text-wood-light">
-                  02
-                </span>
-                <p className="mt-1">
-                  Reserve your date and time through the official booking link.
-                </p>
-              </li>
-              <li className="border-l border-wood pl-4">
-                <span className="font-display text-sm tracking-[0.14em] text-wood-light">
-                  03
-                </span>
-                <p className="mt-1">
-                  Questions about events or custom needs? Contact The Grove after
-                  checking availability.
-                </p>
-              </li>
+            <ol className="mt-8 border-t border-black/15">
+              {steps.map((step, index) => (
+                <li key={step} className="grid grid-cols-[3rem_1fr] gap-4 border-b border-black/15 py-5">
+                  <span className="font-display text-3xl leading-none text-forest">
+                    {index + 1}
+                  </span>
+                  <p className="text-black/80">{step}</p>
+                </li>
+              ))}
             </ol>
           </div>
-        </div>
-
-        <div className="container-grove mt-14">
-          <div className="flex flex-col gap-6 border border-cream/20 p-8 md:flex-row md:items-center md:justify-between md:p-10">
-            <div>
-              <p className="font-display text-3xl tracking-[0.05em] md:text-4xl">
-                Ready to lock it in?
-              </p>
-              <p className="mt-2 text-cream/60">
-                Opens {site.bookingProvider} in a new tab.
-              </p>
-            </div>
-            <ButtonLink href={site.bookingUrl} external variant="cream" size="lg">
-              Book the Space
-            </ButtonLink>
+          <div>
+            <h2 className="font-display text-4xl leading-[0.98] md:text-5xl">
+              Hosted here
+            </h2>
+            <p className="mt-6 text-black/70">
+              For athletes and event organizers alike. The space has hosted
+              community celebrations, clinics, and guest speakers.
+            </p>
+            <ul className="mt-6 border-t border-black/15">
+              {hostedEvents.map((event) => (
+                <li key={event.name} className="grid grid-cols-[7.5rem_1fr] gap-4 border-b border-black/15 py-3.5">
+                  <time
+                    dateTime={event.on}
+                    className={[
+                      "self-start justify-self-start font-display text-lg",
+                      event.showtime ? "bg-amber px-1.5 text-black" : "text-forest",
+                    ].join(" ")}
+                  >
+                    {flyerDate(event.on)}
+                  </time>
+                  <span className="text-black/80">{event.name}</span>
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
+      </section>
+
+      <section className="bg-forest text-paper">
+        <div className="container-grove flex flex-col gap-8 py-16 md:flex-row md:items-center md:justify-between md:py-20">
+          <div>
+            <h2 className="font-display text-5xl leading-[0.95] md:text-6xl">
+              Ready to lock it in?
+            </h2>
+            <p className="mt-4 text-paper/75">
+              Availability, rates, and reservations are on {site.bookingProvider}.
+            </p>
+          </div>
+          <ButtonLink href={bookingCta.href} external variant="light" size="lg">
+            {bookingCta.label}
+          </ButtonLink>
         </div>
       </section>
     </>

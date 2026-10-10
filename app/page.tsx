@@ -1,70 +1,83 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
 import { CommunitySection } from "@/components/CommunitySection";
 import { CTASection } from "@/components/CTASection";
 import { FacilitySection } from "@/components/FacilitySection";
 import { Hero } from "@/components/Hero";
+import { ArrowRight } from "@/components/Icon";
 import { PartnerLogoGrid } from "@/components/PartnerLogoGrid";
 import { Photo } from "@/components/Photo";
 import { ProgramPathway } from "@/components/ProgramPathway";
-import { SectionHeading } from "@/components/SectionHeading";
-import { SocialGrid } from "@/components/SocialGrid";
-import { ecosystem, images, philosophy, scholarship } from "@/lib/content";
+import { Accent, SectionHeading } from "@/components/SectionHeading";
+import { audiences, images, mission, scholarship } from "@/lib/content";
+import { organizationJsonLd, pageMetadata } from "@/lib/metadata";
+import { site } from "@/lib/site";
+
+export const metadata: Metadata = pageMetadata({
+  title: `${site.name} · San Jose Basketball Nonprofit`,
+  absoluteTitle: true,
+  description:
+    "The Grove Community Collective is a San Jose basketball nonprofit with a 10,000 sq ft training facility. Home of Showtime Basketball Academy and the Eric Cordova Scholarship. Book the court on GoodRun.",
+  path: "/",
+});
 
 export default function HomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Hero />
 
-      {/* 02 More than a gym */}
-      <section className="bg-cream py-20 md:py-28">
-        <div className="container-grove">
-          <div className="grid gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-            <div>
-              <SectionHeading title="More than a gym.">
-                <p>
-                  The Grove is a basketball facility, and a community built
-                  through the game. Training happens here. So does mentorship,
-                  mutual support, and the work of showing up for the next one.
-                </p>
-              </SectionHeading>
+      {/* What The Grove is, and where each visitor should go */}
+      <section className="bg-paper py-20 md:py-28">
+        <div className="container-grove grid gap-14 lg:grid-cols-[1fr_1fr] lg:gap-20">
+          <SectionHeading
+            title={
+              <>
+                More than <Accent>a gym.</Accent>
+              </>
+            }
+          >
+            <p>{mission.statement}</p>
+            <p className="mt-4">
+              We own a {site.facilitySqFt} sq ft training facility on{" "}
+              {site.street} in San Jose. It is where Showtime Basketball
+              Academy trains, where athletes and event organizers book the
+              court, and where our scholarship, clinics, and shoe drive come
+              to life.
+            </p>
+          </SectionHeading>
 
-              <blockquote className="mt-12 max-w-2xl border-l-2 border-wood pl-6 text-lg leading-relaxed text-black/75 md:text-xl">
-                “{philosophy.quote}”
-                <footer className="mt-4 font-display text-xs tracking-[0.16em] text-gray">
-                  {philosophy.source}
-                </footer>
-              </blockquote>
-            </div>
-
-            <div className="lg:pt-10">
-              <p className="eyebrow text-forest">The ecosystem</p>
-              <ul className="mt-5 divide-y divide-black/15 border-y border-black/15">
-                {ecosystem.map((item) => (
-                  <li key={item.name}>
-                    <Link
-                      href={item.href}
-                      className="group flex items-start justify-between gap-4 py-5 transition-colors hover:bg-cream-deep/60"
-                    >
-                      <div>
-                        <p className="font-display text-xl tracking-[0.05em] group-hover:text-forest md:text-2xl">
-                          {item.name}
-                        </p>
-                        <p className="mt-1 text-sm text-black/60">
-                          {item.blurb}
-                        </p>
-                        {item.status === "unconfirmed" ? (
-                          <p className="draft-note">Unconfirmed · details TBD</p>
-                        ) : null}
-                      </div>
-                      <span className="mt-1 font-display text-xs tracking-[0.14em] text-gray">
-                        →
+          <div>
+            <h2 className="sr-only">Find your way in</h2>
+            <ul className="border-t border-black/15">
+              {audiences.map((item) => (
+                <li key={item.name} className="border-b border-black/15">
+                  <Link
+                    href={item.href}
+                    className="group grid grid-cols-[1fr_auto] items-center gap-6 py-5 transition-colors hover:text-forest"
+                  >
+                    <span>
+                      <span className="block font-display text-2xl md:text-[1.75rem]">
+                        {item.name}
                       </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                      <span className="mt-1.5 block text-[0.9375rem] text-black/70">
+                        <span className="font-semibold text-black">
+                          {item.audience}.
+                        </span>{" "}
+                        {item.blurb}
+                      </span>
+                    </span>
+                    <ArrowRight className="text-xl text-black/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-forest" />
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -75,32 +88,42 @@ export default function HomePage() {
 
       <CommunitySection />
 
-      {/* 06 Eric Cordova Scholarship */}
-      <section className="bg-black text-cream">
-        <div className="container-wide grid lg:grid-cols-[0.85fr_1.15fr]">
+      {/* Eric Cordova Scholarship */}
+      <section className="bg-black text-paper">
+        <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <Photo
             src={images.scholarship.src}
             alt={images.scholarship.alt}
-            aspect="aspect-[4/5] lg:aspect-auto lg:min-h-full"
+            aspect="aspect-[4/5] h-full lg:aspect-auto lg:min-h-[46rem]"
             className="h-full"
+            imgClassName="object-[50%_30%]"
           />
-          <div className="flex flex-col justify-center px-6 py-16 sm:px-10 md:px-14 md:py-24">
-            <p className="eyebrow text-wood-light">Legacy</p>
-            <h2 className="mt-4 font-display text-5xl tracking-[0.04em] md:text-7xl">
-              For the
-              <br />
-              next one.
-            </h2>
-            <p className="mt-6 max-w-xl text-lg text-cream/70">
-              {scholarship.story}
-            </p>
-            <p className="mt-4 max-w-xl text-cream/70">
-              {scholarship.funding}
-            </p>
-            <p className="mt-4 max-w-xl text-cream/55">{scholarship.purpose}</p>
-            <div className="mt-10">
-              <ButtonLink href="/scholarship" variant="cream" size="lg">
-                Learn about the Scholarship
+          <div className="gutter-end flex flex-col justify-center py-16 pl-5 sm:pl-10 md:py-24 lg:pl-16">
+            <SectionHeading
+              tone="dark"
+              title={
+                <>
+                  For the <span className="block">next one.</span>
+                </>
+              }
+            >
+              <p>
+                {scholarship.story} {scholarship.funding}
+              </p>
+            </SectionHeading>
+            <ul className="mt-8 max-w-xl border-t border-paper/20 text-paper/80">
+              {scholarship.provides.map((item) => (
+                <li key={item} className="border-b border-paper/20 py-3">
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <ButtonLink href="/scholarship#support" variant="light" size="lg">
+                Support the Scholarship
+              </ButtonLink>
+              <ButtonLink href="/scholarship" variant="outline-light" size="lg">
+                Coach Eric&apos;s story
               </ButtonLink>
             </div>
           </div>
@@ -108,8 +131,6 @@ export default function HomePage() {
       </section>
 
       <PartnerLogoGrid />
-
-      <SocialGrid />
 
       <CTASection />
     </>

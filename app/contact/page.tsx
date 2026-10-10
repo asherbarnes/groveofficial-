@@ -1,88 +1,91 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/ButtonLink";
-import { ContactForm } from "@/components/ContactForm";
-import { SectionHeading } from "@/components/SectionHeading";
-import { site } from "@/lib/site";
+import { Suspense } from "react";
+import { ContactForm, ContactFormWithTopic } from "@/components/ContactForm";
+import { ArrowUpRight } from "@/components/Icon";
+import { Accent } from "@/components/SectionHeading";
+import { pageMetadata } from "@/lib/metadata";
+import { bookingCta, joinShowtimeCta, site } from "@/lib/site";
 
-export const metadata: Metadata = {
-  title: "Contact",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact for Partners, Donors, and Events",
   description:
-    "Contact The Grove Community Collective in San Jose: general inquiries, Showtime, facility rentals, and scholarship questions.",
-  alternates: { canonical: "/contact" },
-};
+    "Contact The Grove Community Collective in San Jose for partnerships, donations, volunteering, and event questions. Training inquiries go to Showtime Basketball Academy.",
+  path: "/contact",
+});
+
+const routes = [
+  {
+    title: "Training and Showtime",
+    body: "Showtime Basketball Academy handles training inquiries and enrollment.",
+    cta: { ...joinShowtimeCta, label: "Contact Showtime" },
+  },
+  {
+    title: "Book the court",
+    body: `Availability, rates, and reservations are on ${site.bookingProvider}.`,
+    cta: bookingCta,
+  },
+  {
+    title: "Events and news",
+    body: "New events are announced on Instagram first.",
+    cta: { href: site.instagramUrl, label: site.instagramHandle, external: true },
+  },
+] as const;
 
 export default function ContactPage() {
   return (
-    <>
-      <section className="bg-cream py-16 md:py-24">
-        <div className="container-grove grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-          <div>
-            <SectionHeading eyebrow="Contact" title="Get in touch.">
-              <p>
-                General questions, Showtime interest, scholarship support, or
-                facility rentals, send a note. Confirmed public phone, email, and
-                street address will be added once verified.
-              </p>
-            </SectionHeading>
+    <section className="bg-paper py-16 md:py-24">
+      <div className="container-grove grid items-start gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+        <div>
+          <h1 className="font-display text-[3.25rem] leading-[0.92] sm:text-7xl md:text-8xl">
+            Get <Accent>in touch.</Accent>
+          </h1>
+          <span aria-hidden="true" className="brand-rule mt-7" />
+          <p className="mt-6 max-w-xl text-lg text-black/70">
+            Reach the right people faster. Training and court bookings each
+            have their own place. Everything else comes to us.
+          </p>
 
-            <div className="mt-10 space-y-6 border-t border-black/15 pt-8">
-              <div>
-                <p className="eyebrow text-forest">Location</p>
-                <p className="mt-2 text-lg">{site.location}</p>
-                <p className="mt-1 text-sm text-gray">
-                  Exact street address pending verification.
-                </p>
-              </div>
-
-              <div>
-                <p className="eyebrow text-forest">Social</p>
+          <ul className="mt-12 border-t-[3px] border-black">
+            {routes.map((route) => (
+              <li key={route.title} className="border-b border-black/15 py-6">
+                <h2 className="font-display text-2xl">{route.title}</h2>
+                <p className="mt-1.5 text-black/70">{route.body}</p>
                 <a
-                  href={site.instagramUrl}
+                  href={route.cta.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-2 inline-block text-lg underline decoration-wood decoration-2 underline-offset-6"
+                  className="mt-1 inline-flex min-h-11 items-center gap-1.5 font-display text-sm font-medium tracking-[0.1em] text-forest uppercase underline decoration-forest/40 decoration-1 underline-offset-[0.5em] transition-colors hover:decoration-forest"
                 >
-                  {site.instagramHandle}
+                  {route.cta.label}
+                  <ArrowUpRight />
+                  <span className="sr-only"> (opens in a new tab)</span>
                 </a>
-              </div>
+              </li>
+            ))}
+            <li className="border-b border-black/15 py-6">
+              <h2 className="font-display text-2xl">Location</h2>
+              <p className="mt-1.5 text-lg">
+                {site.street}, {site.location}
+              </p>
+            </li>
+          </ul>
+        </div>
 
-              <div>
-                <p className="eyebrow text-forest">Facility rental</p>
-                <p className="mt-2 text-black/70">
-                  For court and event bookings, use GoodRun, or send a rental
-                  inquiry below.
-                </p>
-                <div className="mt-4 flex flex-wrap gap-3">
-                  <ButtonLink href="/book" variant="primary" size="md">
-                    Book page
-                  </ButtonLink>
-                  <ButtonLink
-                    href={site.bookingUrl}
-                    external
-                    variant="ghost"
-                    size="md"
-                  >
-                    Open {site.bookingProvider}
-                  </ButtonLink>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="border border-black/15 bg-white p-6 md:p-10">
-            <h2 className="font-display text-3xl tracking-[0.05em]">
-              Send an inquiry
-            </h2>
-            <p className="mt-2 text-sm text-gray">
-              Choose a topic so messages land in the right place once email is
-              connected.
-            </p>
-            <div className="mt-8">
-              <ContactForm />
-            </div>
+        <div className="bg-forest p-7 text-paper md:p-10 lg:sticky lg:top-28">
+          <h2 className="font-display text-3xl leading-[1.02] md:text-4xl">
+            Partners, donors, and everything else
+          </h2>
+          <p className="mt-3 text-paper/75">
+            Sponsorships, partnerships, donations, volunteering, and event
+            questions. We don&apos;t take training inquiries here.
+          </p>
+          <div className="mt-8 border-t border-paper/20 pt-8">
+            <Suspense fallback={<ContactForm />}>
+              <ContactFormWithTopic />
+            </Suspense>
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
