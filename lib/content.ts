@@ -3,6 +3,8 @@
  * Every fact here traces to PRODUCT.md (Verified). Do not invent facts.
  */
 
+import { showtimeLinks } from "@/lib/site";
+
 export const philosophy = {
   quote:
     "A grove is where a collective of trees grow together. Similarly, we are all choosing to continually be in a perpetual state of growth. Some of us are just seedlings starting along our path, others are seasoned trees standing tall, regardless we are all on the same soil, utilizing one another's roots to help build stronger foundations for our own growth.",
@@ -29,7 +31,8 @@ export const audiences = [
     name: "Showtime Basketball Academy",
     blurb:
       "Year-round, development-first training in small groups of up to six. Your first session is free.",
-    href: "/programs",
+    href: showtimeLinks.siteUrl,
+    external: true,
   },
   {
     audience: "Athletes and event organizers",
@@ -108,20 +111,6 @@ export const showtime = {
     { letter: "E", word: "Effort" },
     { letter: "A", word: "Attitude" },
     { letter: "D", word: "Discipline" },
-  ],
-  joinSteps: [
-    {
-      title: "Send an inquiry",
-      body: "Tell Showtime about your player through their inquiry form.",
-    },
-    {
-      title: "Try a session",
-      body: "The first small-group session is free.",
-    },
-    {
-      title: "Get accepted, then enroll",
-      body: "Players are accepted into the program before buying a membership. The Academy starts with an evaluation.",
-    },
   ],
 } as const;
 

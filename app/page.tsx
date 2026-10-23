@@ -5,7 +5,7 @@ import { CommunitySection } from "@/components/CommunitySection";
 import { CTASection } from "@/components/CTASection";
 import { FacilitySection } from "@/components/FacilitySection";
 import { Hero } from "@/components/Hero";
-import { ArrowRight } from "@/components/Icon";
+import { ArrowRight, ArrowUpRight } from "@/components/Icon";
 import { PartnerLogoGrid } from "@/components/PartnerLogoGrid";
 import { Photo } from "@/components/Photo";
 import { ProgramPathway } from "@/components/ProgramPathway";
@@ -13,6 +13,9 @@ import { Accent, SectionHeading } from "@/components/SectionHeading";
 import { audiences, images, mission, scholarship } from "@/lib/content";
 import { organizationJsonLd, pageMetadata } from "@/lib/metadata";
 import { site } from "@/lib/site";
+
+const audienceLinkClass =
+  "group grid grid-cols-[1fr_auto] items-center gap-6 py-5 transition-colors hover:text-forest";
 
 export const metadata: Metadata = pageMetadata({
   title: `${site.name} · San Jose Basketball Nonprofit`,
@@ -56,12 +59,9 @@ export default function HomePage() {
           <div>
             <h2 className="sr-only">Find your way in</h2>
             <ul className="border-t border-black/15">
-              {audiences.map((item) => (
-                <li key={item.name} className="border-b border-black/15">
-                  <Link
-                    href={item.href}
-                    className="group grid grid-cols-[1fr_auto] items-center gap-6 py-5 transition-colors hover:text-forest"
-                  >
+              {audiences.map((item) => {
+                const label = (
+                  <>
                     <span>
                       <span className="block font-display text-2xl md:text-[1.75rem]">
                         {item.name}
@@ -73,10 +73,33 @@ export default function HomePage() {
                         {item.blurb}
                       </span>
                     </span>
-                    <ArrowRight className="text-xl text-black/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-forest" />
-                  </Link>
-                </li>
-              ))}
+                    {"external" in item && item.external ? (
+                      <ArrowUpRight className="text-xl text-black/50 transition-colors duration-200 group-hover:text-forest" />
+                    ) : (
+                      <ArrowRight className="text-xl text-black/50 transition-transform duration-200 group-hover:translate-x-1 group-hover:text-forest" />
+                    )}
+                  </>
+                );
+                return (
+                  <li key={item.name} className="border-b border-black/15">
+                    {"external" in item && item.external ? (
+                      <a
+                        href={item.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={audienceLinkClass}
+                      >
+                        {label}
+                        <span className="sr-only"> (opens in a new tab)</span>
+                      </a>
+                    ) : (
+                      <Link href={item.href} className={audienceLinkClass}>
+                        {label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
             </ul>
           </div>
         </div>

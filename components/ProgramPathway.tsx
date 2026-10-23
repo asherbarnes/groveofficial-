@@ -1,6 +1,5 @@
-import Link from "next/link";
 import { ButtonLink } from "@/components/ButtonLink";
-import { ArrowRight } from "@/components/Icon";
+import { ArrowUpRight } from "@/components/Icon";
 import { SectionHeading } from "@/components/SectionHeading";
 import { showtime } from "@/lib/content";
 import { primaryCta } from "@/lib/site";
@@ -17,7 +16,12 @@ export function ProgramPathway() {
             </p>
           </SectionHeading>
           <div className="mt-9 flex flex-wrap items-center gap-x-6 gap-y-4">
-            <ButtonLink href={primaryCta.href} variant="showtime" size="lg">
+            <ButtonLink
+              href={primaryCta.href}
+              external={primaryCta.external}
+              variant="showtime"
+              size="lg"
+            >
               {primaryCta.label}
             </ButtonLink>
             <p className="text-sm text-gray">Your first session is free.</p>
@@ -36,13 +40,16 @@ export function ProgramPathway() {
               </li>
             ))}
           </ul>
-          <Link
-            href="/programs"
+          <a
+            href={primaryCta.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-6 inline-flex min-h-11 items-center gap-2 font-display text-sm font-medium tracking-[0.1em] uppercase underline decoration-black/30 decoration-1 underline-offset-[0.5em] transition-colors hover:decoration-black"
           >
-            How to join and program details
-            <ArrowRight />
-          </Link>
+            Program details on Showtime
+            <ArrowUpRight />
+            <span className="sr-only"> (opens in a new tab)</span>
+          </a>
         </div>
       </div>
     </section>

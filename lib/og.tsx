@@ -10,7 +10,7 @@ import { site } from "@/lib/site";
  * can't read woff2. The Grove's cards are near-black with off-white accents and
  * the white mark; Showtime's card (showtime: true) is amber with black text.
  */
-export type OgPhoto = "home" | "programs" | "community" | "scholarship" | "book" | "events";
+export type OgPhoto = "home" | "community" | "scholarship" | "book" | "events";
 
 const asset = (...parts: string[]) => readFile(join(process.cwd(), "assets", ...parts));
 

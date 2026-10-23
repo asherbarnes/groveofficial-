@@ -6,7 +6,7 @@ type PageMeta = {
   /** Page title. Gets the "· The Grove" suffix unless `absoluteTitle` is set. */
   title: string;
   description: string;
-  /** Canonical path, e.g. "/programs". */
+  /** Canonical path, e.g. "/community". */
   path: string;
   absoluteTitle?: boolean;
 };

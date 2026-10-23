@@ -24,7 +24,7 @@ export function CTASection({
   title = "Come grow with us.",
   body = "Train with Showtime, book the court for your group or event, or support the players coming up behind you.",
   tone = "forest",
-  primary = { ...primaryCta, showtime: true },
+  primary = { ...primaryCta, showtime: true, external: primaryCta.external },
   secondary = secondaryCta,
   note,
 }: Props) {

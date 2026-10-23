@@ -76,7 +76,13 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
-            <ButtonLink href={primaryCta.href} variant="showtime" size="md" className="ml-1">
+            <ButtonLink
+              href={primaryCta.href}
+              external={primaryCta.external}
+              variant="showtime"
+              size="md"
+              className="ml-1"
+            >
               {primaryCta.label}
             </ButtonLink>
           </nav>
@@ -84,6 +90,7 @@ export function Header() {
           <div className="flex items-center gap-2 lg:hidden">
             <ButtonLink
               href={primaryCta.href}
+              external={primaryCta.external}
               variant="showtime"
               size="md"
               className="!px-3.5 !text-[0.75rem]"

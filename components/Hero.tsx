@@ -32,7 +32,12 @@ export function Hero() {
           </p>
 
           <div className="animate-rise delay-3 mt-8 flex flex-wrap gap-3">
-            <ButtonLink href={primaryCta.href} variant="showtime" size="lg">
+            <ButtonLink
+              href={primaryCta.href}
+              external={primaryCta.external}
+              variant="showtime"
+              size="lg"
+            >
               {primaryCta.label}
             </ButtonLink>
             <ButtonLink href={secondaryCta.href} variant="outline-light" size="lg">

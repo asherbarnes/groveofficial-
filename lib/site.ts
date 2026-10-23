@@ -19,14 +19,10 @@ export const site = {
 
 /**
  * Showtime Basketball Academy owns enrollment, pricing, and schedules.
- * inquiryUrl is the form Showtime's own site links to. The Grove's old link
- * (showtimebasketballacademy.com/inquire) returned 404 on 2026-10-05.
- * Final destination awaits client confirmation (PRODUCT.md Q8).
+ * Join Showtime and related CTAs go to Showtime's site.
  */
 export const showtimeLinks = {
   siteUrl: "https://www.showtimebasketballacademy.com/",
-  inquiryUrl:
-    "https://minosrec.com/showtime-basketball-academy/general-inquiry",
   membershipsUrl: "https://www.showtimebasketballacademy.com/memberships",
   instagramUrl: "https://www.instagram.com/showtimebasketball/",
   instagramHandle: "@showtimebasketball",
@@ -36,15 +32,16 @@ export const showtimeLinks = {
 export const nav = [
   { href: "/community", label: "Community" },
   { href: "/events", label: "Events" },
-  { href: "/programs", label: "Programs" },
   { href: "/scholarship", label: "Scholarship" },
   { href: "/book", label: "Book the Space" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
+/** Off-site: Showtime owns enrollment. */
 export const primaryCta = {
-  href: "/programs",
+  href: showtimeLinks.siteUrl,
   label: "Join Showtime",
+  external: true,
 } as const;
 
 export const secondaryCta = {
@@ -59,9 +56,5 @@ export const bookingCta = {
   external: true,
 } as const;
 
-/** Off-site step that actually starts enrollment. */
-export const joinShowtimeCta = {
-  href: showtimeLinks.inquiryUrl,
-  label: "Join Showtime",
-  external: true,
-} as const;
+/** Alias for Contact and other Showtime-bound CTAs. */
+export const joinShowtimeCta = primaryCta;
